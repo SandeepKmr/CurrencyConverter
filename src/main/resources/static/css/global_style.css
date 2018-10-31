@@ -4,7 +4,7 @@
 	color: #000;
 } /*Black color to the text*/
 .tabs .tab a:hover {
-	background-color: transparent;
+	background-color: #26a69a;
 	color: #000;
 } /*Text color on hover*/
 .tabs .tab a.active {
@@ -14,3 +14,6 @@
 .tabs .indicator {
 	background-color: #2bbbad;
 } /*Color of underline*/
+.tabs .tab a:focus {
+	background-color: transparent !important;
+}
