@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/login.css">
 <title>Login</title>
 </head>
-<body>
+<body class="fluid-container">
 
 
 	<div class="login_container">
@@ -24,39 +24,128 @@
 
 			<span class="login_title">Welcome</span>
 
+
+
+
+
+
+
 			<div class="row">
 				<div class="col s12">
+					<ul class="tabs">
+						<li class="tab col s6"><a class="active" href="#login">Login</a></li>
+						<li class="tab col s6"><a href="#signUp">Sign Up </a></li>
+					</ul>
+				</div>
+
+
+				<!-- Login Tab -->
+				<div id="login" class="col s12" style="margin-top:25px;">
 
 
 					<div class="row">
+						<div class="col s12">
 
-						<div class="input-field col s12">
-							<input id="email" type="email" class="validate"> <label
-								for="email">Email</label>
-						</div>
-						<div class="input-field col s12">
-							<input id="password" type="password" class="validate"> <label
-								for="password">Password</label>
+
+							<div class="row">
+
+								<div class="input-field col s12">
+									<input id="loginEmail" type="email" class="validate"> <label
+										for="email">Email</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="loginPassword" type="password" class="validate">
+									<label for="password">Password</label>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="input-field col s4"></div>
+								<div class="input-field col s4">
+									<button class="btn waves-effect waves-light" type="submit"
+										name="action">
+										Submit <i class="material-icons right">send</i>
+									</button>
+								</div>
+								<div class="input-field col s4"></div>
+
+							</div>
+
 						</div>
 					</div>
-					<div class="row">
 
-						<div class="input-field col s4"></div>
-						<div class="input-field col s4">
-							<button class="btn waves-effect waves-light" type="submit"
-								name="action">
-								Submit <i class="material-icons right">send</i>
-							</button>
-						</div>
-						<div class="input-field col s4"></div>
-
-					</div>
 
 				</div>
+
+
+
+				<!-- Sign Up tab -->
+				<div id="signUp" class="col s12" style="margin-top:25px;">
+
+
+
+					<div class="row">
+						<div class="col s12">
+
+
+							<div class="row">
+
+								<div class="input-field col s12">
+									<input id="signupEmail" type="email" class="validate">
+									<label for="email">Email</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="signupPassword" type="password" class="validate">
+									<label for="password">Password</label>
+								</div>
+								<div class="input-field col s12">
+									<input id="signupConfirmPassword" type="password"
+										class="validate"> <label for="password">Confirm
+										Password</label>
+								</div>
+								<div class="input-field col s12">
+
+									<input type="text" class="datepicker"> <label
+										for="password">Date Of Birth</label>
+								</div>
+
+							</div>
+							<div class="row">
+
+								<div class="input-field col s4"></div>
+								<div class="input-field col s4">
+									<button class="btn waves-effect waves-light" type="submit"
+										name="action">
+										Submit <i class="material-icons right">send</i>
+									</button>
+								</div>
+								<div class="input-field col s4"></div>
+
+							</div>
+
+						</div>
+					</div>
+
+
+
+
+				</div>
+
 			</div>
 
 
+
+
+
+
+
+
+
+
+
 		</div>
+
+
 	</div>
 
 
@@ -64,7 +153,8 @@
 	<!-- <script src="webjars/bootstrap/4.1.3/js/bootstrap.js"></script> -->
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.4/umd/popper.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.4/umd/popper.min.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>
