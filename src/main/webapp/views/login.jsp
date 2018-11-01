@@ -25,7 +25,7 @@
 			<span class="login_title">Welcome</span>
 
 
-			<div class="row" >
+			<div class="row">
 				<div class="col s12">
 					<ul class="tabs">
 						<li class="tab col s6"><a class="active" href="#login">Login</a></li>
@@ -35,7 +35,7 @@
 
 
 				<!-- Login Tab -->
-				<div id="login" class="col s12" style="margin-top:20px;">
+				<div id="login" class="col s12" style="margin-top: 20px;">
 
 
 					<div class="row">
@@ -71,7 +71,7 @@
 
 
 				<!-- Sign Up tab -->
-				<div id="signUp" class="col s12" style="margin-top:20px;">
+				<div id="signUp" class="col s12" style="margin-top: 20px;">
 
 
 
@@ -116,9 +116,9 @@
 								</div>
 								<div class=" col s4"></div>
 							</div>
-							
-							
-							
+
+
+
 						</form>
 					</div>
 
