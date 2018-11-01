@@ -4,23 +4,27 @@
 .tabs .tab a {
 	color: #000;
 	font-weight: 400;
-    font-family: sans-serif;
+	font-family: sans-serif;
 }
 /*Text color on hover*/
 .tabs .tab a:hover {
 	background-color: transparent;
 	color: #000;
-} 
+}
 /*Background and text color when a tab is active*/
 .tabs .tab a.active {
 	background-color: transparent;
 	color: #000;
-} 
+}
 /*Color of underline*/
 .tabs .indicator {
 	background-color: #26a69a;
-} 
+}
 
 .tabs .tab a:focus {
 	background-color: transparent !important;
+}
+
+.row {
+	margin-bottom: 0px !important;
 }

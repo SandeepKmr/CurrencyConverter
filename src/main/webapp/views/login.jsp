@@ -25,47 +25,6 @@
 			<span class="login_title">Welcome</span>
 
 
-
-
-
-			<!-- <div class="row">
-				<form class="col s12">
-					<div class="row">
-						<div class="input-field col s12">
-							<input  id="login_email" type="email"
-								class="validate"> <label for="login_email">Email
-							</label>
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="login_pass" type="password" class="validate">
-							<label for="login_pass">Password</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s4"></div>
-						<div class="input-field col s4">
-							<button class="btn waves-effect waves-light" type="submit"
-								name="action">
-								Submit <i class="material-icons right">send</i>
-							</button>
-						</div>
-						<div class="input-field col s4"></div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div> -->
-
-
-
-
-
-
-
-
 			<div class="row" >
 				<div class="col s12">
 					<ul class="tabs">
