@@ -35,30 +35,31 @@
 
 
 				<!-- Login Tab -->
-				<div id="login" class="col s12" style="margin-top: 20px;">
+				<div id="login" class="col s12"
+					style="height: 440px; margin-top: 20px;">
 
 
 					<div class="row">
-						<form class="col s12">
+						<form action="/login" method="POST" class="col s12">
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="login_email" type="email" class="validate">
-									<label for="login_email">Email </label>
+									<input id="username" type="text" class="validate">
+									<label for="username">Email </label>
 								</div>
 
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="login_pass" type="password" class="validate">
-									<label for="login_pass">Password</label>
+									<input id="password" type="password" class="validate">
+									<label for="password">Password</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s4"></div>
 								<div class="input-field col s4">
-									<button class="btn waves-effect waves-light" type="submit"
-										name="action">
-										Submit <i class="material-icons right">send</i>
+									<button class="btn waves-effect waves-light" type="submit" id="login_btn"
+										name="submit">
+										Submit
 									</button>
 								</div>
 								<div class="input-field col s4"></div>
@@ -71,12 +72,21 @@
 
 
 				<!-- Sign Up tab -->
-				<div id="signUp" class="col s12" style="margin-top: 20px;">
+				<div id="signUp" class="col s12"
+					style="height: 460px; margin-top: 20px;">
 
 
 
 					<div class="row">
-						<form class="col s12">
+						<div class="col s12">
+
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="signup_username" type="text" class="validate">
+									<label for="signup_username">Username </label>
+								</div>
+
+							</div>
 							<div class="row">
 								<div class="input-field col s12">
 									<input id="signup_email" type="email" class="validate">
@@ -109,9 +119,9 @@
 							<div class="row">
 								<div class=" col s4"></div>
 								<div class=" col s4">
-									<button class="btn waves-effect waves-light" type="submit"
-										name="action">
-										Submit <i class="material-icons right">send</i>
+									<button class="btn waves-effect waves-light" type="submit" id="signup_btn"
+										name="submit">
+										Submit 
 									</button>
 								</div>
 								<div class=" col s4"></div>
@@ -119,7 +129,7 @@
 
 
 
-						</form>
+						</div>
 					</div>
 
 

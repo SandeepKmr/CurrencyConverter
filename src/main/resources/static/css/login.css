@@ -15,11 +15,11 @@
 }
 
 .login_wrapper {
-	width: 390px;
+	width: 400px;
 	background: #fff;
 	border-radius: 8px;
 	overflow: hidden;
-	padding: 77px 55px 33px 55px;
+	padding: 60px 55px 33px 55px;
 	box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 	-webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -40,5 +40,5 @@
 
 .login_container .row
 {
-	margin-bottom: 5px !important;
+	margin-bottom: 0px !important;
 }
