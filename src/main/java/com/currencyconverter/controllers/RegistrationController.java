@@ -49,7 +49,8 @@ public class RegistrationController {
 			Set<Role> role = new HashSet<>();
 			role.add(new Role("ROLE_USER"));
 			user.setRoles(role);
-			userService.saveUser(user);
+			User savedUser = userService.saveUser(user);
+			logger.info("User " + savedUser.getUserName() + " Saved Successfully !!");
 		}
 
 		return "redirect:/login";

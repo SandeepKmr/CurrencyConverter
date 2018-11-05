@@ -1,7 +1,8 @@
 package com.currencyconverter.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +11,12 @@ import com.currencyconverter.repository.UserRepository;
 import com.currencyconverter.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -23,8 +25,8 @@ public class UserServiceImpl implements UserService {
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
-		userRepository.save(user);
-		return null;
+
+		return userRepository.save(user);
 	}
 
 }

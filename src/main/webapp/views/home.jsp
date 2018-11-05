@@ -21,10 +21,11 @@
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo">CC</a>
 				<%-- <div>${pageContext.request.userPrincipal.name}</div> --%>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<form action="/logout" method="post" style="margin-top: 12px;">
+				<ul id="nav-mobile" class="right ">
+					<!-- <form action="/logout" method="get" style="margin-top: 12px;">
 						<button class=" btn orange darken-4" type="submit">Logout</button>
-					</form>
+					</form> -->
+					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>
 
