@@ -1,5 +1,6 @@
 package com.currencyconverter.model;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -13,7 +14,7 @@ public class ConversionRates {
 	private String license;
 	private Long timestamp;
 	private String base;
-	private Map<String, Double> rates;
+	private Map<String, BigDecimal> rates;
 
 	public String getDisclaimer() {
 		return disclaimer;
@@ -47,11 +48,11 @@ public class ConversionRates {
 		this.base = base;
 	}
 
-	public Map<String, Double> getRates() {
+	public Map<String, BigDecimal> getRates() {
 		return rates;
 	}
 
-	public void setRates(Map<String, Double> rates) {
+	public void setRates(Map<String, BigDecimal> rates) {
 		this.rates = rates;
 	}
 
