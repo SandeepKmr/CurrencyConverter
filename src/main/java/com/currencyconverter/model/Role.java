@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author sandeepkumar
+ *
+ */
 @Entity
 @Table(name = "role")
 public class Role {
@@ -18,6 +23,14 @@ public class Role {
 
 	@Column(name = "role_name")
 	private String roleName;
+
+	public Role() {
+
+	}
+
+	public Role(String role) {
+		this.roleName = role;
+	}
 
 	public int getRoleId() {
 		return roleId;

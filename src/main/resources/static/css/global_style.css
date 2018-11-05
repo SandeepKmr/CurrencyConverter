@@ -28,3 +28,14 @@
 .row {
 	margin-bottom: 0px !important;
 }
+
+nav {
+	background-color: #26a69a ;
+}
+
+
+.page-footer {
+    padding-top: 5px;
+    color: white;
+    background-color: #26a69a ;
+}

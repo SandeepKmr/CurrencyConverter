@@ -1,0 +1,32 @@
+@CHARSET "ISO-8859-1";
+
+.home_container {
+	min-height: 100vh;
+	margin: auto;
+}
+
+.converter_wrapper {
+	background: #fff;
+	min-height: 90vh;
+	overflow: hidden;
+	padding: 70px 30px 33px 30px;
+	box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+	-o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+	-ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.history_wrapper {
+	
+}
+.logout_btn
+{
+	
+	background-color: red;
+}
+.converter_wrapper .row
+{
+	
+	margin-bottom:20px !important;
+}

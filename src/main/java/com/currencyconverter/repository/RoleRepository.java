@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.currencyconverter.model.Role;
 
+/**
+ * 
+ * @author sandeepkumar
+ *
+ */
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
 

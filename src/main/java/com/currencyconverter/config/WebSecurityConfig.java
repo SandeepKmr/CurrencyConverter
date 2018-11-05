@@ -1,7 +1,7 @@
 package com.currencyconverter.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,37 +13,33 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.currencyconverter.service.CustomUserDetailsService;
+import com.currencyconverter.service.impl.CustomUserDetailsService;
 
+/**
+ * 
+ * @author sandeepkumar
+ *
+ */
 @EnableWebSecurity
 @Configuration
+@ComponentScan(basePackageClasses = CustomUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private UserDetailsService customUserDetailService;
-	
-//	@Bean
-//	public UserDetailsService userDetailsService() {
-//		return new CustomUserDetailsService();
-//	}
+	@Bean
+	public UserDetailsService userDetailsService() {
+		return new CustomUserDetailsService();
+	}
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserDetailService);
+		auth.userDetailsService(userDetailsService());
 	}
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests()
-				.antMatchers("/home", "/convert/**", "/list/**")
-				.authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/home").and().logout()
-				.permitAll();
+		http.csrf().disable().authorizeRequests().antMatchers("/home", "/convert/**", "/list/**").authenticated().and().formLogin()
+				.loginPage("/login").usernameParameter("email").defaultSuccessUrl("/home").and().logout().permitAll();
 		http.headers().frameOptions().disable();
-	}
-	
-	@Override
-	@Bean
-	public AuthenticationManager authenticationManager() throws Exception {
-		return super.authenticationManager();
 	}
 
 	@Override
@@ -52,9 +48,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/WEB-INF/js/*.js");
 		web.ignoring().antMatchers("/*.js", "*.js", "/*/*.js");
 	}
-
-//	@Bean(name = "passwordEncoder")
-//	public PasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+@Override
+	@Bean
+	public AuthenticationManager authenticationManager() throws Exception {
+		return super.authenticationManager();
+	}
+	@Bean(name = "passwordEncoder")
+	public PasswordEncoder passwordencoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

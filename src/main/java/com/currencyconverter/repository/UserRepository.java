@@ -6,9 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.currencyconverter.model.User;
-
+/**
+ * 
+ * @author sandeepkumar
+ *
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	User findByUserName(String emialId);
+	User findByUserName(String username);
+	User findByEmailId(String emailId);
 }

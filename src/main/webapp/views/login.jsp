@@ -22,119 +22,48 @@
 
 		<div class="login_wrapper">
 
-			<span class="login_title">Welcome</span>
+			<span class="login_title">Login</span>
 
 
 			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s6"><a class="active" href="#login">Login</a></li>
-						<li class="tab col s6"><a href="#signUp">Sign Up </a></li>
-					</ul>
-				</div>
 
-
-				<!-- Login Tab -->
 				<div id="login" class="col s12"
-					style="height: 440px; margin-top: 20px;">
+					style="">
 
 
 					<div class="row">
 						<form action="/login" method="POST" class="col s12">
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="username" type="text" class="validate">
-									<label for="username">Email </label>
+									<input id="email" type="text" class="validate" name="email">
+									<label for="email">Email </label>
 								</div>
 
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="password" type="password" class="validate">
-									<label for="password">Password</label>
+									<input id="password" type="password" class="validate"
+										name="password"> <label for="password">Password</label>
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field col s4"></div>
-								<div class="input-field col s4">
-									<button class="btn waves-effect waves-light" type="submit" id="login_btn"
-										name="submit">
-										Submit
-									</button>
+
+								<div class="input-field col s12">
+									<button class="btn waves-effect waves-light login_btn_size"
+										type="submit" id="login_btn" name="submit">LogIn</button>
 								</div>
-								<div class="input-field col s4"></div>
 							</div>
 						</form>
 					</div>
 
 				</div>
-
-
-
-				<!-- Sign Up tab -->
-				<div id="signUp" class="col s12"
-					style="height: 460px; margin-top: 20px;">
-
-
-
-					<div class="row">
-						<div class="col s12">
-
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="signup_username" type="text" class="validate">
-									<label for="signup_username">Username </label>
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="signup_email" type="email" class="validate">
-									<label for="signup_email">Email </label>
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="signup_pass" type="password" class="validate">
-									<label for="signup_pass">Password</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="signup_confirm_pass" type="password"
-										class="validate"> <label for="signup_confirm_pass">Confirm
-										Password</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="signup_dob" type="text" class="datepicker">
-									<label for="signup_dob">Date Of Birth</label>
-								</div>
-
-							</div>
-
-							<div class="row">
-								<div class=" col s4"></div>
-								<div class=" col s4">
-									<button class="btn waves-effect waves-light" type="submit" id="signup_btn"
-										name="submit">
-										Submit 
-									</button>
-								</div>
-								<div class=" col s4"></div>
-							</div>
-
-
-
-						</div>
-					</div>
-
-
-
+				<div class="col s12 signup_text">
+					<span>Don't have an account? <a href="/register">Sign up</a></span>
 				</div>
+
+
+
+
 			</div>
 		</div>
 	</div>
