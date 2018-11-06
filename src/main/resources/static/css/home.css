@@ -20,13 +20,27 @@
 .history_wrapper {
 	
 }
-.logout_btn
-{
-	
+
+.logout_btn {
 	background-color: red;
 }
-.converter_wrapper .row
-{
-	
-	margin-bottom:20px !important;
+
+.currency_converter_block .row {
+	margin-bottom: 10px !important;
+}
+
+#latest_rates span {
+	font-size: 13px;
+	font-family: Arial;
+}
+
+.result_box {
+	font-size: 40px;
+	padding-top: 20px !important;
+	padding-bottom: 25px !important;
+	text-align: center;
+	margin-top: 40px;
+	background-color: #eee;
+	border-radius: 5px;
+	letter-spacing: 2px;
 }

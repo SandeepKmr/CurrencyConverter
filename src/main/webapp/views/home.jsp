@@ -9,7 +9,9 @@
 <link rel="stylesheet"
 	href="webjars/font-awesome/5.3.1/css/fontawesome.css">
 
-
+<link rel="stylesheet"
+	href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
+<script src="http://github.hubspot.com/odometer/odometer.js"></script>
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/home.css">
 <title>Home</title>
@@ -31,8 +33,8 @@
 
 			</nav>
 		</div>
-		<div class="row converter_wrapper">
-			<div class="col s4"
+		<div class="row converter_wrapper ">
+			<div class="col s4 currency_converter_block "
 				style="border-right: 1px solid #e0e0e0; min-height: 540px;">
 				<div class="row">
 
@@ -50,7 +52,7 @@
 				<div class="row">
 					<div class=" input-field col s10">
 
-						<select class="icons">
+						<select class="icons" id="fromCurrency">
 
 							<option value="INR" data-icon="images/currency/inr.svg">INR</option>
 							<option value="EUR" data-icon="images/currency/eur.svg">EUR</option>
@@ -69,7 +71,7 @@
 
 				<div class="row">
 					<div class=" input-field col s10">
-						<select class="icons">
+						<select class="icons" id="toCurrency">
 
 							<option value="INR" data-icon="images/currency/inr.svg">INR</option>
 							<option value="EUR" data-icon="images/currency/eur.svg">EUR</option>
@@ -86,17 +88,21 @@
 				</div>
 
 				<div class="row">
-					<div class=" input-field col s4"></div>
-					<div class=" input-field col s8">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">Convert</button>
+					
+					<div class=" input-field col s10" >
+						<button class="btn waves-effect waves-light" type="submit" style="width:100%"
+							name="action" id="currency_convert_btn">Convert</button>
 					</div>
 
-					<div class=" input-field col s4"></div>
+					
 
 				</div>
+				<div class="row"  id="currency_result">
+				
+				
+				</div>
 
-
+				
 
 
 
@@ -104,38 +110,18 @@
 			</div>
 			<div class="col s4 "
 				style="border-right: 1px solid #e0e0e0; min-height: 540px;">
+
+
+
 				<div class="row" style="text-align: center">
-					<h6 class="header">Current Exchange Rates</h6>
+					<h6 class="">Current Exchange Rates</h6>
+					<button class="btn waves-effect waves-light" type="submit"
+						id="update_currency_rates_btn" name="action">Update
+						Records</button>
 				</div>
-				<div class="row" style="padding: 0px 30px 0px 30px">
-					<table>
-						<thead>
-							<tr>
-								<th>Currency</th>
-								<th>Rate</th>
+				<div class="row" style="padding: 0px 30px 0px 30px"
+					id="latest_rates"></div>
 
-							</tr>
-						</thead>
-
-						<tbody>
-							<tr>
-								<td>Alvin</td>
-								<td>Eclair</td>
-
-							</tr>
-							<tr>
-								<td>Alan</td>
-								<td>Jellybean</td>
-
-							</tr>
-							<tr>
-								<td>Jonathan</td>
-								<td>Lollipop</td>
-
-							</tr>
-						</tbody>
-					</table>
-				</div>
 
 			</div>
 

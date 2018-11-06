@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -39,11 +40,15 @@ public class CurrencyController {
 		return currencyList;
 	}
 
-	@GetMapping("currency/convert/{amount}/{to}/{from}")
-	public BigDecimal convertCurrency() {
+	@GetMapping("currency/convert/{amount}/{from}/{to}")
+	public BigDecimal convertCurrency(@PathVariable String amount,
+			@PathVariable String from, @PathVariable String to) {
 		
 		
-		return null;
+
+		
+		
+		return new BigDecimal("15.56789");
 	}
 
 }
