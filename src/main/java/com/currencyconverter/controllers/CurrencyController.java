@@ -4,15 +4,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
-import com.currencyconverter.model.ConversionRates;
+import com.currencyconverter.model.ConversionQuery;
 import com.currencyconverter.model.Currency;
 import com.currencyconverter.service.CurrencyService;
 
@@ -23,13 +20,13 @@ import com.currencyconverter.service.CurrencyService;
  */
 
 @RestController
-@PropertySource("api.properties")
+@RequestMapping("/currency")
 public class CurrencyController {
 
 	@Autowired
 	private CurrencyService currencyService;
 
-	@GetMapping("/currency/latest-currency-rates")
+	@GetMapping("/latest-currency-rates")
 	public List<Currency> getLatestCurrencyRates() {
 
 		List<Currency> currencyList = currencyService.getLatestRates();
@@ -40,15 +37,21 @@ public class CurrencyController {
 		return currencyList;
 	}
 
-	@GetMapping("currency/convert/{amount}/{from}/{to}")
-	public BigDecimal convertCurrency(@PathVariable String amount,
-			@PathVariable String from, @PathVariable String to) {
-		
-		
+	@GetMapping("/convert/{amount}/{fromCurrency}/{toCurrency}")
+	public BigDecimal convertCurrency(@PathVariable ("amount")String amount, @PathVariable("fromCurrency")String fromCurrency,
+			@PathVariable("toCurrency") String toCurrency) {
 
-		
-		
-		return new BigDecimal("15.56789");
+		BigDecimal convertedAmount = currencyService.convertCurrency(amount, fromCurrency, toCurrency);
+
+		return convertedAmount;
 	}
 
+	
+	@GetMapping("/conversion-queries")
+	public List<ConversionQuery> getConversionQueries()
+	{
+		
+		
+		return null;
+	}
 }
