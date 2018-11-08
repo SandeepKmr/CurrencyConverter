@@ -13,6 +13,7 @@
 
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/login.css">
+
 <title>Login</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
 
 
 					<div class="row">
-						<form action="/login" method="POST" class="col s12">
+						<form action="/login" method="POST" class="col s12" name="login_form">
 							<div class="row">
 								<div class="input-field col s12">
 									<input id="email" type="text" class="validate" name="email">
@@ -42,7 +43,7 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="password" type="password" class="validate"
+									<input id="password" type="password" 
 										name="password"> <label for="password">Password</label>
 								</div>
 							</div>
@@ -75,6 +76,8 @@
 
 
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	
 	<!-- <script src="webjars/bootstrap/4.1.3/js/bootstrap.js"></script> -->
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<!-- <script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script> -->

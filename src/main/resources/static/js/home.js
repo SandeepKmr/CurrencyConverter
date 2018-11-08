@@ -4,6 +4,7 @@
 
 $(document).ready(function() {
 	$('select').formSelect();
+	getConversionQueries();
 	getLatestCurrencyRates();
 	$("#update_currency_rates_btn").click(function() {
 		getCurrentCurrencyRates();
@@ -22,7 +23,8 @@ $(document).ready(function() {
 			dataType : 'json',
 			success : function(response) {
 				console.log(response)
-				$('#currency_result').html("<div class='col s10 result_box' ><div >" + response + "</div></div>");
+				displayConvertedResult(response);
+				//$('#currency_result').html("<div class='col s10 result_box' ><div >" + response + "</div></div>");
 			},
 			error : function(e) {}
 		});
@@ -47,6 +49,26 @@ function getLatestCurrencyRates() {
 
 }
 
+function getConversionQueries() {
+	$.ajax({
+		type : "GET",
+		contentType : "application/json",
+		url : "/currency/conversion-queries",
+		dataType : 'text',
+		success : function(response) {
+			displayLatestQueries(response);
+		},
+		error : function(e) {}
+	});
+
+}
+
+function displayConvertedResult(response) {
+	var htmlString = "<div class='col s10 result_box' ><div >" + response + "</div></div>";
+	$('#currency_result').html(htmlString);
+	getConversionQueries();
+
+}
 function displayCurrentRates(response) {
 	var currencyList = JSON.parse(response);
 	var htmlString = "";
@@ -56,9 +78,18 @@ function displayCurrentRates(response) {
 			+ '</div></div></div><div class="divider"></div>'
 	});
 	$('#latest_rates').html(htmlString);
+}
 
 
-
-
+function displayLatestQueries(response) {
+	var queryList = JSON.parse(response);
+	var htmlString = "";
+	$.each(queryList, function(key, value) {
+		htmlString += '<div class="card horizontal"><div class="card-stacked"><div class="card-content">'
+			+ '<p>' + value.fromCurrency + '</p></div></div></div>';
+	});
+	
+	console.log("QueryResult"+queryList);
+	$('#conversion_queries').html(htmlString);
 
 }

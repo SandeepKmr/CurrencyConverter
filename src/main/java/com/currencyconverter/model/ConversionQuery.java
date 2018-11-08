@@ -43,20 +43,20 @@ public class ConversionQuery {
 
 	@Column(name = "query_date")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date query_date;
+	private Date queryDate;
 
 	public ConversionQuery() {
 	}
 
 	public ConversionQuery(String emailId, String fromCurrency, String toCurrency, String amount,
-			String convertedResult, Date query_date) {
+			String convertedResult, Date queryDate) {
 		super();
 		this.emailId = emailId;
 		this.fromCurrency = fromCurrency;
 		this.toCurrency = toCurrency;
 		this.amount = amount;
 		this.convertedResult = convertedResult;
-		this.query_date = query_date;
+		this.queryDate = queryDate;
 	}
 
 	public long getId() {
@@ -107,12 +107,12 @@ public class ConversionQuery {
 		this.convertedResult = convertedResult;
 	}
 
-	public Date getQuery_date() {
-		return query_date;
+	public Date getQueryDate() {
+		return queryDate;
 	}
 
-	public void setQuery_date(Date query_date) {
-		this.query_date = query_date;
+	public void setQueryDate(Date queryDate) {
+		this.queryDate = queryDate;
 	}
 
 }

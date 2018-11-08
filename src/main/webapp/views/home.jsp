@@ -6,12 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="webjars/materializecss/1.0.0/css/materialize.min.css">
-<link rel="stylesheet"
-	href="webjars/font-awesome/5.3.1/css/fontawesome.css">
+<!-- <link rel="stylesheet"
+	href="webjars/font-awesome/5.3.1/css/fontawesome.css"> -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
 
-<link rel="stylesheet"
-	href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
-<script src="http://github.hubspot.com/odometer/odometer.js"></script>
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/home.css">
 <title>Home</title>
@@ -24,9 +24,6 @@
 				<a href="#" class="brand-logo">CC</a>
 				<%-- <div>${pageContext.request.userPrincipal.name}</div> --%>
 				<ul id="nav-mobile" class="right ">
-					<!-- <form action="/logout" method="get" style="margin-top: 12px;">
-						<button class=" btn orange darken-4" type="submit">Logout</button>
-					</form> -->
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>
@@ -39,8 +36,8 @@
 				<div class="row">
 
 					<div class=" input-field col s10">
-						<input placeholder="Amount" id="amount" type="text"> <label
-							for="amount">Amount </label>
+						<input placeholder="Amount" id="amount" type="text" maxlength="8">
+						<label for="amount">Amount </label>
 
 					</div>
 
@@ -88,21 +85,18 @@
 				</div>
 
 				<div class="row">
-					
-					<div class=" input-field col s10" >
-						<button class="btn waves-effect waves-light" type="submit" style="width:100%"
-							name="action" id="currency_convert_btn">Convert</button>
+
+					<div class=" input-field col s10">
+						<button class="btn waves-effect waves-light" type="submit"
+							style="width: 100%" name="action" id="currency_convert_btn">Convert</button>
 					</div>
 
-					
+
 
 				</div>
-				<div class="row"  id="currency_result">
-				
-				
-				</div>
+				<div class="row" id="currency_result"></div>
 
-				
+
 
 
 
@@ -130,106 +124,37 @@
 				<div class="row" style="text-align: center">
 					<h6 class="header">Last Searches History</h6>
 				</div>
+				<div class="card horizontal">
+					<div class="card-stacked">
+						<div class="card-content">
+							<div class="row">
+								<div class="col s12">USD <i style="font-size:20px" class="fa">&#xf061;</i> INR</div>
+								<div class="col s12">Amount : 23345</div>
+								<div class="col s12">Result : 23345</div>
+								<div class="col s12">Qyuried At:12-4-2018</div>
+								<!-- <div class="col s1">
+						<p>USD</p>
+						</div>
+						<div class="col s1">
+						<i style="font-size:20px" class="fa">&#xf061;</i>
+						</div>
+						<div class="col s1">
+						<p>INR</p>
+						</div>
+						<div class="col s1">
+						<p style="font-size:20px;"><b>=</b></p>
+						</div>
+						<div class="col s4">
+						<p>3333312.56783</p>
+						</div> -->
 
-
-
-				<div class="col s12">
-					<div class="card-panel teal">
-						<span class="white-text">I am a very simple card. I am good
-							at containing small bits of information. I am convenient because
-							is called a panel in other frameworks. </span>
-					</div>
-				</div>
-
-
-
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
 							</div>
+
 
 						</div>
 					</div>
 				</div>
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col s12">
-
-					<div class="card horizontal">
-
-						<div class="card-stacked">
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small
-									bits of information.</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-
+				<div class="col s12" id="conversion_queries"></div>
 
 			</div>
 

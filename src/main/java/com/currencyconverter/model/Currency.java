@@ -22,7 +22,7 @@ public class Currency {
 	@Column(name = "currency_name")
 	private String currencyName;
 
-	@Column(name = "rate" ,precision = 20, scale = 12)
+	@Column(name = "rate" ,precision = 10, scale = 6)
 	private BigDecimal rate;
 
 	public Currency() {

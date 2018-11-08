@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/login.css">
-<title>Login</title>
+<title>Register</title>
 </head>
 <body>
 
@@ -33,39 +33,43 @@
 				<div class="row">
 					<div class="col s12">
 						<form:form method="POST" action="/register"
-							modelAttribute="registrationForm">
+							modelAttribute="registrationForm" name="register_form">
 							<div class="row">
 								<div class="input-field col s12">
-									<form:input   id="signup_username" path="userName" type="text" class="validate"/>
-										<form:label path="userName" for="signup_username">Username </form:label>
+									<form:input id="signup_username" path="userName" type="text"
+										name="userName" />
+									<form:label path="userName" for="signup_username">Username </form:label>
 								</div>
 
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<form:input id="signup_email" path="emailId" type="email" class="validate"/>
-										<form:label for="signup_email" path="emailId">Email </form:label>
+									<form:input id="signup_email" path="emailId" type="email"
+										name="emailId" />
+									<form:label for="signup_email" path="emailId">Email </form:label>
 								</div>
 
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<form:input id="signup_pass" path="password" type="password" class="validate"/>
-										<form:label path="password" for="signup_pass">Password</form:label>
+									<form:input id="signup_pass" path="password" type="password"
+										name="password" />
+									<form:label path="password" for="signup_pass">Password</form:label>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="input-field col s12">
-									<form:input id="signup_confirm_pass"  path="confirmPassword" type="password"
-										class="validate"/>
-										<form:label for="signup_confirm_pass" path="confirmPassword">Confirm Password</form:label>
+									<form:input id="signup_confirm_pass" path="confirmPassword"
+										type="password" name="confirmPassword" />
+									<form:label for="signup_confirm_pass" path="confirmPassword">Confirm Password</form:label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<form:input id="signup_dob"  path="dateOfBirth" type="text" class="datepicker"/>
-										<form:label for="signup_dob" path="dateOfBirth">Date Of Birth</form:label>
+									<form:input id="signup_dob" path="dateOfBirth" type="text"
+										class="datepicker" name="dateOfBirth" />
+									<form:label for="signup_dob" path="dateOfBirth">Date Of Birth</form:label>
 								</div>
 
 							</div>
@@ -99,11 +103,13 @@
 
 
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 	<!-- <script src="webjars/bootstrap/4.1.3/js/bootstrap.js"></script> -->
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<!-- <script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script> -->
 	<!-- <script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.4/umd/popper.min.js"></script> -->
-	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.currencyconverter.controllers;
 
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,20 +39,17 @@ public class CurrencyController {
 	}
 
 	@GetMapping("/convert/{amount}/{fromCurrency}/{toCurrency}")
-	public BigDecimal convertCurrency(@PathVariable ("amount")String amount, @PathVariable("fromCurrency")String fromCurrency,
-			@PathVariable("toCurrency") String toCurrency) {
+	public BigDecimal convertCurrency(@PathVariable("amount") String amount,
+			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
 
 		BigDecimal convertedAmount = currencyService.convertCurrency(amount, fromCurrency, toCurrency);
 
 		return convertedAmount;
 	}
 
-	
 	@GetMapping("/conversion-queries")
-	public List<ConversionQuery> getConversionQueries()
-	{
-		
-		
-		return null;
+	public List<ConversionQuery> getConversionQueries(Principal principal) {
+
+		return currencyService.getConversionQueries(principal.getName());
 	}
 }

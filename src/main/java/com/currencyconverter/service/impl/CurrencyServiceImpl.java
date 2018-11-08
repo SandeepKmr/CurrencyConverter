@@ -1,6 +1,7 @@
 package com.currencyconverter.service.impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -96,14 +97,14 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 				BigDecimal fromCurrencyValue = currencyRateMap.get(fromCurrency);
 				BigDecimal toCurrencyValue = currencyRateMap.get(toCurrency);
-				conversionAmount = fromCurrencyValue.multiply(toCurrencyValue);
+				conversionAmount = ( toCurrencyValue.divide(fromCurrencyValue, 6,RoundingMode.FLOOR)).multiply(conversionAmount);
 
 			} else {
 				throw new IllegalArgumentException("amount should not be 0 or less than 0");
 			}
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			ConversionQuery query = new ConversionQuery(auth.getName(), fromCurrency, toCurrency, amount,
-					String.valueOf(conversionAmount), new Date());
+					conversionAmount.toString(), new Date());
 			conversionQueryRepository.save(query);
 
 		} else {
@@ -111,6 +112,12 @@ public class CurrencyServiceImpl implements CurrencyService {
 			throw new IllegalArgumentException("invalid conversion parameters");
 		}
 		return conversionAmount;
+	}
+
+	@Override
+	public List<ConversionQuery> getConversionQueries(String emailId) {
+
+		return conversionQueryRepository.findTop10ByEmailIdOrderByQueryDateDesc(emailId);
 	}
 
 }
