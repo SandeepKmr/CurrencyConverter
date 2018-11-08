@@ -16,7 +16,7 @@ function validateRegisterForm() {
 		function(value, element) {
 			return Date.parse(value) <= Date.parse('12/31/2000') || value == "";
 		},
-		"Date of birth should should be less than 31-12-2000 .");
+		"Date of birth should should not be greater than 31-12-2000 .");
 
 	$("form[name='register_form']").validate({
 		errorElement : "div",
