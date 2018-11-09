@@ -14,12 +14,12 @@ $(document).ready(function() {
 
 
 function validateLoginForm() {
-	$.validator.addMethod('strongPassword', function(value, element) {
-		return this.optional(element)
-			|| value.length >= 6
-			&& /\d/.test(value)
-			&& /[a-z]/i.test(value);
-	}, 'Invalid password')
+//	$.validator.addMethod('strongPassword', function(value, element) {
+//		return this.optional(element)
+//			|| value.length >= 6
+//			&& /\d/.test(value)
+//			&& /[a-z]/i.test(value);
+//	}, 'Invalid password')
 
 
 	$("form[name='login_form']").validate({
@@ -44,8 +44,8 @@ function validateLoginForm() {
 			},
 			password : {
 				required : true,
-				minlength : 6,
-				strongPassword : true
+				//minlength : 8,
+				//strongPassword : true
 			}
 		},
 		// validation error messages
@@ -53,7 +53,7 @@ function validateLoginForm() {
 			email : "Please enter a valid email address",
 			password : {
 				required : "Please provide a password",
-				minlength : "Password must be at least 6 characters long",
+				minlength : "Password must be at least 8 characters long",
 			}
 		},
 		submitHandler : function(form) {

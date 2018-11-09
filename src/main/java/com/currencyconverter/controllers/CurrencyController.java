@@ -5,6 +5,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class CurrencyController {
 	private CurrencyService currencyService;
 
 	@GetMapping("/latest-currency-rates")
+	@Cacheable("latest-currency-rates")
 	public List<Currency> getLatestCurrencyRates() {
 
 		List<Currency> currencyList = currencyService.getLatestRates();

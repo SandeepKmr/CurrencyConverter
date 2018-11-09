@@ -3,7 +3,6 @@ $(document).ready(function() {
 	validateRegisterForm();
 
 });
-//this.optional(element)
 function validateRegisterForm() {
 	console.log("register validation !!");
 	var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,20}$/
@@ -12,7 +11,7 @@ function validateRegisterForm() {
 		return passwordReg.test(value);
 	}, 'Password must contain at least one capital letter,one number and one special character(@#$!%*?&).'),
 
-	$.validator.addMethod("dateFormat",
+	$.validator.addMethod("dateRange",
 		function(value, element) {
 			return Date.parse(value) <= Date.parse('12/31/2000') || value == "";
 		},
@@ -39,16 +38,20 @@ function validateRegisterForm() {
 				required : true,
 				minlength : 8,
 				maxlength : 15,
+				
 			},
 			emailId : {
 				required : true,
-				email : true
+				email : true,
+				
+				
 			},
 			password : {
 				required : true,
 				minlength : 8,
 				maxlength : 20,
-				strongPassword : true
+				strongPassword : true,
+				nowhitespace: true,
 			},
 
 			confirmPassword : {
@@ -59,7 +62,8 @@ function validateRegisterForm() {
 			},
 			dateOfBirth : {
 				required : true,
-				dateFormat : true
+				dateRange : true,
+				
 			}
 		},
 		// validation error messages
@@ -67,7 +71,8 @@ function validateRegisterForm() {
 			userName : {
 				required : "Please enter a valid email username.",
 				minlength : "Username must be at least 8 characters long.",
-				maxlength : "Username should not exceed 15 characters."
+				maxlength : "Username should not exceed 15 characters.",
+				nowhitespace:"White spaces are not allowed."
 			},
 			emailId : {
 				required : "Please enter a valid email address.",
