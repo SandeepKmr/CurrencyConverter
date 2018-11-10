@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.currencyconverter.model.ConversionQuery;
@@ -52,7 +51,11 @@ public class CurrencyController {
 			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
 
 		BigDecimal convertedAmount = currencyService.convertCurrency(amount, fromCurrency, toCurrency);
-
+//		if(1==1)
+//		{
+//			throw new IllegalAccessError("Access error");
+//		}
+		
 		return convertedAmount;
 	}
 

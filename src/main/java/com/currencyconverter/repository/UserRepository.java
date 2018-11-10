@@ -14,6 +14,5 @@ import com.currencyconverter.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	User findByUserName(String username);
 	User findByEmailId(String emailId);
 }

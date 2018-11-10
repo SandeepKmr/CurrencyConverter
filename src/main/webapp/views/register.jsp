@@ -28,14 +28,14 @@
 					<div class="col s12">
 						<form:form method="POST" action="/register"
 							modelAttribute="registrationForm" name="register_form">
-							<div class="row">
+							<%-- <div class="row">
 								<div class="input-field col s12">
 									<form:input id="signup_username" path="userName" type="text"
 										name="userName" />
 									<form:label path="userName" for="signup_username">Username </form:label>
 								</div>
 
-							</div>
+							</div> --%>
 							<div class="row">
 								<div class="input-field col s12">
 									<form:input id="signup_email" path="emailId" type="email"
@@ -75,6 +75,9 @@
 										style="width: 100%; margin-top: 20px;">SignUp</button>
 								</div>
 							</div>
+							
+							<div class="error" >${errorMessage}</div>
+							<div class="success">${successMessage}</div>
 
 						</form:form>
 

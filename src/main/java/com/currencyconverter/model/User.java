@@ -28,7 +28,6 @@ public class User {
 	public User(User user) {
 
 		this.userId = user.getUserId();
-		this.userName = user.getUserName();
 		this.emailId = user.getEmailId();
 		this.password = user.getPassword();
 		this.confirmPassword = user.getConfirmPassword();
@@ -41,8 +40,6 @@ public class User {
 	@Column(name = "user_id")
 	private long userId;
 
-	@Column(name = "user_name")
-	private String userName;
 
 	@Column(name = "email_id")
 	private String emailId;
@@ -67,13 +64,6 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
 
 	public String getEmailId() {
 		return emailId;
@@ -117,8 +107,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", emailId=" + emailId + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + ", dateOfBirth=" + dateOfBirth + ", roles=" + roles + "]";
+		return "User [userId=" + userId + ", emailId=" + emailId + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", dateOfBirth=" + dateOfBirth + ", roles=" + roles + "]";
 	}
+
+	
 
 }

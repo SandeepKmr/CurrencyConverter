@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,117 +18,142 @@
 <link rel="stylesheet" href="css/home.css">
 <title>Home</title>
 </head>
-<body style="background-color: #f2f2f2">
+<body>
 	<div class="" style="width: 100%">
 		<div class="row">
-			<nav class="col s12 ">
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">CC</a>
-				<%-- <div>${pageContext.request.userPrincipal.name}</div> --%>
-				<ul id="nav-mobile" class="right ">
-					<li><a href="/logout">Logout</a></li>
-				</ul>
-			</div>
+			<div class="navbar-fixed">
+				<!-- <span>C</span> <span>C</span> -->
+				<nav class="col s12 " style="color:white;"> <!-- <div>CC</div>> -->
+				<div class="nav-wrapper">
+					<!-- <span>C</span> <span>C</span> -->
+					<a href="#" class="brand-logo center"
+						style="font-size: 50px; font-weight: 700;">CC</a>
+					<div style="display: inline-block" class="welcome_user_block">
+						<span>Welcome </span>
+						
+						<c:set var = "userEmialId" value = "${pageContext.request.userPrincipal.name}" />
+						
+						<c:set var="username"
+							value="${fn:split(userEmailId ,'@')}" />
+						<span>${userEmialId} </span>
+					</div>
+					<ul id="nav-mobile" class="right ">
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div>
 
-			</nav>
+				</nav>
+			</div>
 		</div>
 		<div class="row converter_wrapper ">
-			<div class="col s4 currency_converter_block "
-				style="border-right: 1px solid #e0e0e0; min-height: 540px;">
-				
-				<form id="converter_form">
-				<div class="row" style="text-align: center">
-					<h6 class="">Converter</h6>
+
+
+			<div class="col s12 m6 l4 xl4 col-content currency_converter_block "
+				style="padding: 10px;">
+
+
+				<div class="block_header">
+					<span class="header_txt" style="">Converter</span>
 
 
 				</div>
-				<div class="row">
+				<div class="content_wrapper" style="padding: 10px 45px 10px 45px;">
 
 
 
-					<div class=" input-field col s10">
-						<input placeholder="Amount" id="amount" name="amount" type="text" maxlength="8">
-						<label for="amount">Amount </label>
+
+					<form id="converter_form">
+
+						<div class="row">
+
+
+
+							<div class=" input-field col s12">
+								<input placeholder="Amount" id="amount" name="amount"
+									type="text" maxlength="8"> <label for="amount">Amount
+								</label>
+
+							</div>
+
+
+
+						</div>
+
+
+						<div class="row">
+							<div class=" input-field col s12">
+
+								<select id="fromCurrency" name="fromDropDown">
+								</select><label>From</label>
+
+
+							</div>
+
+
+						</div>
+
+						<div class="row">
+							<div class=" input-field col s12">
+								<select id="toCurrency" name="toDropDown">
+								</select><label>To</label>
+
+							</div>
+
+
+						</div>
+					</form>
+					<div class="row">
+
+						<div class=" input-field col s12">
+							<button class="btn waves-effect waves-light" style="width: 100%"
+								id="currency_convert_btn">Convert</button>
+						</div>
+
+
 
 					</div>
 
-
-
-				</div>
-
-
-				<div class="row">
-					<div class=" input-field col s10">
-
-						<select class="icons" id="fromCurrency" name="fromCurrency">
-						</select><label>From</label>
-
-
-					</div>
-
-
-				</div>
-
-				<div class="row">
-					<div class=" input-field col s10">
-						<select class="icons" id="toCurrency" name="toCurrency">
-						</select><label>To</label>
-
-					</div>
-
-
-				</div>
-</form>
-				<div class="row">
-
-					<div class=" input-field col s10">
-						<button class="btn waves-effect waves-light"
-							style="width: 100%"  id="currency_convert_btn">Convert</button>
-					</div>
-
-
-
-				</div>
-				
-				<div class="row error"><div id ="error_message"></div></div>
-				<div class="row" id="currency_result"></div>
-				
-			</div>
-			<div class="col s4 "
-				style="border-right: 1px solid #e0e0e0; min-height: 540px;">
-
-
-
-				<div class="row" style="text-align: center">
-					<h6 class="">Current Exchange Rates</h6>
-
-
-				</div>
-
-				<div class="row" style="padding: 0px 30px 0px 30px"
-					id="latest_rates"></div>
-
-
-				<div class="row" style="margin-top: 40px;">
-
-					<div class="col s12  center-align">
-						<a id="update_currency_rates_btn" class="update_currency_btn"
-							style="">Click here to update latest record</a>
-					</div>
+					<div class="row" id="currency_result"></div>
 				</div>
 			</div>
+			<!--  <div class="col s1 m1 l1 xl1"></div>-->
+			<div class="col s12 m6 l4 xl4 col-content" style="padding: 10px">
+
+				<div class="block_header">
+					<span class="header_txt" style="">Latest Exchange Rates</span>
 
 
-			<div class="col s4 " style="height: 540px; overflow: scroll;">
-				<div class="row" style="text-align: center">
-					<h6 class="header">Last Searches History</h6>
 				</div>
 
+				<div class="content_wrapper" style="padding: 10px 25px 10px 25px;">
 
 
 
-				<div id="conversion_queries"></div>
+					<div class="row" style="padding: 0px 30px 0px 30px"
+						id="latest_rates"></div>
 
+					<div class="row" style="margin-top: 40px;">
+
+						<div class="col s12  center-align">
+							<a id="update_currency_rates_btn" class="update_currency_btn"
+								style="">Click here to update latest record</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col s12 m6 l4 xl4 " style="padding: 10px;">
+				<div class="block_header">
+					<span class="header_txt" style="">Latest Conversion History</span>
+
+
+				</div>
+				<div class="content_wrapper"
+					style="height: 580px; overflow: scroll; padding: 10px 25px 10px 25px;">
+
+					<div id="conversion_queries" style=""></div>
+				</div>
 			</div>
 
 
@@ -147,9 +174,12 @@
 
 
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<!--  <script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>-->
 	<script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script>
 	<script type="text/javascript" src="js/home.js"></script>

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,19 +42,21 @@ public class RegistrationController {
 	}
 
 	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("registrationForm") User user, BindingResult bindingResult) {
+	public String register(@Valid @ModelAttribute("registrationForm") User user, BindingResult bindingResult,ModelMap modelMap) {
 
 		if (bindingResult.hasErrors()) {
+			modelMap.put("errorMessage", "Registration failed,please try again.");
 			return "register";
 		} else {
 			Set<Role> role = new HashSet<>();
 			role.add(new Role("ROLE_USER"));
 			user.setRoles(role);
 			User savedUser = userService.saveUser(user);
-			logger.info("User " + savedUser.getUserName() + " Saved Successfully !!");
+			modelMap.put("successMessage", " Registered successfully.");
+			logger.info("User " + savedUser.getEmailId() + " Saved Successfully !!");
 		}
 
-		return "redirect:/login";
+		return "register";
 
 	}
 }

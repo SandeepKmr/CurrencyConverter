@@ -33,7 +33,7 @@ public class CustomUserDetails extends User implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return super.getUserName();
+		return super.getEmailId();
 	}
 
 	@Override

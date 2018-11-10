@@ -37,16 +37,16 @@ public class CurrencyConverterApplication implements CommandLineRunner {
 		BCryptPasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
 		
 		User obj = new User();
-		obj.setUserName("Sandeep");
+		//obj.setUserName("Sandeep");
 		obj.setEmailId("sandeepkumar@live.in");
 		obj.setPassword(passwordEncoder.encode("pass"));
 		obj.setConfirmPassword(passwordEncoder.encode("pass"));
 		obj.setDateOfBirth(new Date("3/3/2018"));
 
 		Role roleObj = new Role();
-		roleObj.setRoleName("USER_ROLE");
+		roleObj.setRoleName("ROLE_USER");
 		Role roleObj1 = new Role();
-		roleObj1.setRoleName("ADMIN_ROLE");
+		roleObj1.setRoleName("ROLE_ADMIN");
 		Set<Role> roleSet = new HashSet();
 		roleSet.add(roleObj);
 		roleSet.add(roleObj1);

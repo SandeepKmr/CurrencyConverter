@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 });
 function validateRegisterForm() {
-	console.log("register validation !!");
+		
 	var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,20}$/
 
 	$.validator.addMethod('strongPassword', function(value, element) {
@@ -30,11 +30,6 @@ function validateRegisterForm() {
 		},
 		// validation rules
 		rules : {
-			// The key name on the left side is the name attribute
-			// of an input field. Validation rules are defined
-			// on the right side
-
-
 			userName : {
 				required : true,
 				minlength : 8,
