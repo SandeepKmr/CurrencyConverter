@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import com.currencyconverter.model.Currency;
 import com.currencyconverter.repository.ConversionQueryRepository;
 import com.currencyconverter.repository.CurrencyRepository;
 import com.currencyconverter.service.CurrencyService;
+import com.currencyconverter.utils.CurrenciesList;
 
 /**
  * 
@@ -31,22 +34,9 @@ import com.currencyconverter.service.CurrencyService;
  *
  */
 @Service
+@Transactional
 @PropertySource("api.properties")
 public class CurrencyServiceImpl implements CurrencyService {
-
-	private static List<String> CURRENCY_LIST = null;
-
-	static {
-		CURRENCY_LIST = new ArrayList<String>();
-		CURRENCY_LIST.add("INR");
-		CURRENCY_LIST.add("EUR");
-		CURRENCY_LIST.add("AUD");
-		CURRENCY_LIST.add("USD");
-		CURRENCY_LIST.add("GBP");
-		CURRENCY_LIST.add("SGD");
-		CURRENCY_LIST.add("CAD");
-
-	}
 
 	@Autowired
 	private CurrencyRepository currencyRepository;
@@ -61,11 +51,17 @@ public class CurrencyServiceImpl implements CurrencyService {
 	private String latestCurrencyRates;
 
 	@Override
+	public List<String> getAllCurrencies() {
+
+		return CurrenciesList.LIST_OF_CURRENCIES;
+	}
+
+	@Override
 	public List<Currency> getLatestRates() {
 		List<Currency> currencyRateList = new ArrayList<>();
 		ConversionRates conversionRate = getDataFromApi();
 		Map<String, BigDecimal> currencyRates = conversionRate.getRates();
-		CURRENCY_LIST.forEach(currency -> {
+		getAllCurrencies().forEach(currency -> {
 			currencyRateList.add(new Currency(currency, currencyRates.get(currency)));
 
 		});
@@ -97,7 +93,8 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 				BigDecimal fromCurrencyValue = currencyRateMap.get(fromCurrency);
 				BigDecimal toCurrencyValue = currencyRateMap.get(toCurrency);
-				conversionAmount = ( toCurrencyValue.divide(fromCurrencyValue, 6,RoundingMode.FLOOR)).multiply(conversionAmount);
+				conversionAmount = (toCurrencyValue.divide(fromCurrencyValue, 6, RoundingMode.FLOOR))
+						.multiply(conversionAmount);
 
 			} else {
 				throw new IllegalArgumentException("amount should not be 0 or less than 0");

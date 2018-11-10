@@ -15,8 +15,13 @@ import com.currencyconverter.model.Currency;
 public interface CurrencyService {
 
 	public ConversionRates getDataFromApi();
+
+	public List<String> getAllCurrencies();
+
 	public List<Currency> getLatestRates();
-	public BigDecimal convertCurrency(String amount,String fromCurrency,String toCurrency);
+
+	public BigDecimal convertCurrency(String amount, String fromCurrency, String toCurrency);
+
 	public List<ConversionQuery> getConversionQueries(String emailId);
 
 }

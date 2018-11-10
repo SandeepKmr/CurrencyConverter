@@ -8,6 +8,7 @@ function validateRegisterForm() {
 	var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,20}$/
 
 	$.validator.addMethod('strongPassword', function(value, element) {
+		console.log(passwordReg.test(value))
 		return passwordReg.test(value);
 	}, 'Password must contain at least one capital letter,one number and one special character(@#$!%*?&).'),
 
@@ -51,7 +52,7 @@ function validateRegisterForm() {
 				minlength : 8,
 				maxlength : 20,
 				strongPassword : true,
-				nowhitespace: true,
+				
 			},
 
 			confirmPassword : {
@@ -72,7 +73,7 @@ function validateRegisterForm() {
 				required : "Please enter a valid email username.",
 				minlength : "Username must be at least 8 characters long.",
 				maxlength : "Username should not exceed 15 characters.",
-				nowhitespace:"White spaces are not allowed."
+				
 			},
 			emailId : {
 				required : "Please enter a valid email address.",

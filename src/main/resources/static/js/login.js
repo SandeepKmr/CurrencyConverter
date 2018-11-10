@@ -5,23 +5,11 @@
 $(document).ready(function() {
 
 	validateLoginForm();
-	//	$("#login_btn").click(function() {
-	//		//validateLogin();
-	//	});
-
 
 });
 
 
 function validateLoginForm() {
-//	$.validator.addMethod('strongPassword', function(value, element) {
-//		return this.optional(element)
-//			|| value.length >= 6
-//			&& /\d/.test(value)
-//			&& /[a-z]/i.test(value);
-//	}, 'Invalid password')
-
-
 	$("form[name='login_form']").validate({
 		errorElement : "div",
 		errorPlacement : function(error, element) {

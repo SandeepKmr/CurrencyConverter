@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.currencyconverter.model.ConversionQuery;
 import com.currencyconverter.model.Currency;
 import com.currencyconverter.service.CurrencyService;
+import com.currencyconverter.utils.CurrenciesList;
 
 /**
  * 
@@ -22,13 +23,19 @@ import com.currencyconverter.service.CurrencyService;
  */
 
 @RestController
-@RequestMapping("/currency")
+
 public class CurrencyController {
 
 	@Autowired
 	private CurrencyService currencyService;
 
-	@GetMapping("/latest-currency-rates")
+	@GetMapping("/currencies")
+	public List<String> getAllCurrencies() {
+
+		return CurrenciesList.LIST_OF_CURRENCIES;
+	}
+
+	@GetMapping("currency/latest-currency-rates")
 	@Cacheable("latest-currency-rates")
 	public List<Currency> getLatestCurrencyRates() {
 
@@ -40,7 +47,7 @@ public class CurrencyController {
 		return currencyList;
 	}
 
-	@GetMapping("/convert/{amount}/{fromCurrency}/{toCurrency}")
+	@GetMapping("currency/convert/{amount}/{fromCurrency}/{toCurrency}")
 	public BigDecimal convertCurrency(@PathVariable("amount") String amount,
 			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
 
@@ -49,9 +56,10 @@ public class CurrencyController {
 		return convertedAmount;
 	}
 
-	@GetMapping("/conversion-queries")
+	@GetMapping("currency/conversion-queries")
 	public List<ConversionQuery> getConversionQueries(Principal principal) {
 
 		return currencyService.getConversionQueries(principal.getName());
 	}
+
 }

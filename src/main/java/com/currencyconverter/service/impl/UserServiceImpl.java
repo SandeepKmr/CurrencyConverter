@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 import com.currencyconverter.model.User;
 import com.currencyconverter.repository.UserRepository;
 import com.currencyconverter.service.UserService;
-
+/**
+ * 
+ * @author sandeepkumar
+ *
+ */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
