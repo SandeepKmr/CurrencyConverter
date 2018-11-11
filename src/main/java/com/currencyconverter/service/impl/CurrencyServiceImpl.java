@@ -35,7 +35,7 @@ import com.currencyconverter.utils.CurrenciesList;
  */
 @Service
 @Transactional
-@PropertySource("api.properties")
+//@PropertySource("api.properties")
 public class CurrencyServiceImpl implements CurrencyService {
 
 	@Autowired

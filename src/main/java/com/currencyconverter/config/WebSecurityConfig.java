@@ -16,7 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.currencyconverter.service.impl.CustomUserDetailsService;
 
 /**
- * 
+ * Provides spring security configuration.
+ *  
  * @author sandeepkumar
  *
  */
@@ -37,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/home", "/convert/**", "/list/**").authenticated().and().formLogin()
+		http.csrf().disable().authorizeRequests().antMatchers("/home", "/currency/**").authenticated().and().formLogin()
 				.loginPage("/login").usernameParameter("email").defaultSuccessUrl("/home").and().logout().permitAll();
 		http.headers().frameOptions().disable();
 	}
@@ -45,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/*.css");
+		web.ignoring().antMatchers("/*.svg");
 		web.ignoring().antMatchers("/WEB-INF/js/*.js");
 		web.ignoring().antMatchers("/*.js", "*.js", "/*/*.js");
 	}

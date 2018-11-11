@@ -2,7 +2,9 @@ package com.currencyconverter.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
+ * Provides the static list of currencies for display and calulation purpose.
  * 
  * @author sandeepkumar
  *

@@ -45,7 +45,15 @@ public class CurrencyController {
 		});
 		return currencyList;
 	}
-
+	
+	
+/**
+ * 
+ * @param amount
+ * @param fromCurrency
+ * @param toCurrency
+ * @return
+ */
 	@GetMapping("currency/convert/{amount}/{fromCurrency}/{toCurrency}")
 	public BigDecimal convertCurrency(@PathVariable("amount") String amount,
 			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
