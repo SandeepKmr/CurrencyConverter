@@ -43,7 +43,6 @@ It will auto deployed in embedded tomcat provided with Spring Boot at port 8080.
 
 ```
 http://localhost:8080/
-
 ```
 
 ### Built With
