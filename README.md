@@ -35,7 +35,7 @@ mvn clean package
 ```
 ### Deploy an executable JAR
 
-You can run the JAR file with:
+You can run the WAR file with:
 ```
 java -jar target/*.war
 ```
