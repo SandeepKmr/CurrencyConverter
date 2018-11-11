@@ -22,6 +22,7 @@ import com.currencyconverter.model.User;
 import com.currencyconverter.service.UserService;
 
 /**
+ * Validate and save the new user.
  * 
  * @author sandeepkumar
  *

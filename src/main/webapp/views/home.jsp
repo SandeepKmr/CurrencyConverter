@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,24 +19,20 @@
 <title>Home</title>
 </head>
 <body>
+
+
+
 	<div class="" style="width: 100%">
 		<div class="row">
 			<div class="navbar-fixed">
 				<!-- <span>C</span> <span>C</span> -->
 				<nav class="col s12 " style="color:white;"> <!-- <div>CC</div>> -->
 				<div class="nav-wrapper">
-					<%-- <div style="display: inline-block" class="welcome_user_block center">
+					<a href="#" class=" " style="font-size: 42px; font-weight: 600;">CC</a>
+					<div style="display: inline-block ;margin-left:36%;position:relative;top:-10px;" class="welcome_user_block">
 						<span>Welcome </span>
 							<span style="position:relative;left:8px;">${pageContext.request.userPrincipal.name}</span>
-					</div> --%>
-					
-					
-					<a href="#" class=" "
-						style="font-size: 42px; font-weight: 600;">CC</a>
-						<%-- <div style="display: inline-block ;margin-left:40%" class="welcome_user_block">
-						<span>Welcome </span>
-							<span style="position:relative;left:8px;">${pageContext.request.userPrincipal.name}</span>
-					</div> --%>
+					</div> 
 					<ul id="nav-mobile" class="right ">
 						<li><a href="/logout">Logout</a></li>
 					</ul>
@@ -180,7 +176,6 @@
 		src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<!--  <script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>-->
 	<script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script>
 	<script type="text/javascript" src="js/home.js"></script>
 </body>

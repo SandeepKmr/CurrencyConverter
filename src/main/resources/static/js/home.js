@@ -65,13 +65,9 @@ $(document).ready(function() {
 				url : "/currency/convert/" + amount + "/" + fromCurrency + "/" + toCurrency,
 				dataType : 'json',
 				success : function(data, status, xhr) {
-					console.log("success xhr"+xhr)
 					displayConvertedResult(data);
 				},
 				error : function(xhr, status, error) {
-					console.log("XHR"+xhr);
-					console.log("Status"+status);
-					console.log("error"+error);
 					displayError(xhr);
 
 

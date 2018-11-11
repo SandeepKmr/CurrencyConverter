@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	/**
+	 * Saves user to database after encoding the password.
+	 */
 	@Override
 	public User saveUser(User user) {
 

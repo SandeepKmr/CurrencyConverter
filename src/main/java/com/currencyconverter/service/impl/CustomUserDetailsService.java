@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,12 +14,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.currencyconverter.model.CustomUserDetails;
 import com.currencyconverter.model.Role;
 import com.currencyconverter.model.User;
 import com.currencyconverter.repository.UserRepository;
 
 /**
+ * Authenticates user by overriding loadUserByUsername() method of predefined
+ * UserDetailsService.
  * 
  * @author sandeepkumar
  *
@@ -25,7 +28,8 @@ import com.currencyconverter.repository.UserRepository;
 @Service
 @Transactional
 public class CustomUserDetailsService implements UserDetailsService {
-
+	
+	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -34,9 +38,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		User user = userRepository.findByEmailId(emailId);
 		if (user == null) {
+
 			throw new UsernameNotFoundException("No user present with emailId: " + emailId);
 		} else {
-			System.out.println(user.toString());
 			List<SimpleGrantedAuthority> listOfAuthorities = new ArrayList<>();
 
 			for (Role role : user.getRoles()) {

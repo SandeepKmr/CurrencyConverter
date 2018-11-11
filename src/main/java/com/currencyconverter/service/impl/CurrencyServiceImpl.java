@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.boot.model.naming.IllegalIdentifierException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -35,8 +35,9 @@ import com.currencyconverter.utils.CurrenciesList;
  */
 @Service
 @Transactional
-//@PropertySource("api.properties")
 public class CurrencyServiceImpl implements CurrencyService {
+
+	private static final Logger logger = LoggerFactory.getLogger(CurrencyServiceImpl.class);
 
 	@Autowired
 	private CurrencyRepository currencyRepository;
@@ -65,18 +66,23 @@ public class CurrencyServiceImpl implements CurrencyService {
 			currencyRateList.add(new Currency(currency, currencyRates.get(currency)));
 
 		});
-
 		return currencyRepository.saveAll(currencyRateList);
 
 	}
 
-	// Accesing latest currency rates data from openexchangerates.org
+	/**
+	 * Accesing latest currency rates data from openexchangerates.org
+	 */
 	@Override
 	public ConversionRates getDataFromApi() {
 		ConversionRates convRates = restTemplate.getForEntity(latestCurrencyRates, ConversionRates.class).getBody();
+		logger.info("fetched latest currency rates from openexchange api.");
 		return convRates;
 	}
 
+	/**
+	 * Converting the currency
+	 */
 	@Override
 	public BigDecimal convertCurrency(String amount, String fromCurrency, String toCurrency) {
 		BigDecimal conversionAmount = null;
@@ -84,7 +90,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 		if (StringUtils.isNotBlank(amount) && StringUtils.isNotBlank(fromCurrency)
 				&& StringUtils.isNotBlank(toCurrency)) {
-			
+
 			conversionAmount = new BigDecimal(amount);
 			if (conversionAmount.compareTo(BigDecimal.ZERO) > 0) {
 
@@ -96,8 +102,11 @@ public class CurrencyServiceImpl implements CurrencyService {
 				BigDecimal toCurrencyValue = currencyRateMap.get(toCurrency);
 				conversionAmount = (toCurrencyValue.divide(fromCurrencyValue, 6, RoundingMode.FLOOR))
 						.multiply(conversionAmount);
+				logger.info("currency converted  successfully.Converted amount " + conversionAmount);
 
 			} else {
+				
+				logger.error("amount should not be 0");
 				throw new IllegalArgumentException("amount should not be 0 or less than 0");
 			}
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -106,12 +115,15 @@ public class CurrencyServiceImpl implements CurrencyService {
 			conversionQueryRepository.save(query);
 
 		} else {
-
+			logger.error("invalid conversion parameters.");
 			throw new IllegalArgumentException("invalid conversion parameters");
 		}
 		return conversionAmount;
 	}
 
+	/**
+	 * Fetches  last 10 queried conversions.
+	 */
 	@Override
 	public List<ConversionQuery> getConversionQueries(String emailId) {
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.currencyconverter.model.ExceptionResponse;
 
 /**
+ * Include with all controllers and handles exceptions.
  * 
  * @author sandeepkumar
  *

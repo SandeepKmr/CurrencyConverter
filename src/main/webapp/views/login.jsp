@@ -4,13 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- <link rel="stylesheet" href="webjars/bootstrap/4.1.3/css/bootstrap.css"> -->
 <link rel="stylesheet"
 	href="webjars/materializecss/1.0.0/css/materialize.min.css">
-<!-- <link rel="stylesheet"
-	href="webjars/font-awesome/5.3.1/css/fontawesome.css"> -->
-
-
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/login.css">
 
@@ -18,10 +13,8 @@
 </head>
 <body>
 
-
 	<div class="login_container">
-
-		<div class="login_wrapper">
+	<div class="login_wrapper">
 
 			<span class="login_title">Login</span>
 
@@ -89,12 +82,8 @@
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-
-	<!-- <script src="webjars/bootstrap/4.1.3/js/bootstrap.js"></script> -->
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<!-- <script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script> -->
-	<!-- <script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.4/umd/popper.min.js"></script> -->
 	<script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>

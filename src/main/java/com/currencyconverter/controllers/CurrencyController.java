@@ -28,41 +28,49 @@ public class CurrencyController {
 	@Autowired
 	private CurrencyService currencyService;
 
+	/**
+	 * Fetches list of currencies.
+	 * 
+	 * @return
+	 */
 	@GetMapping("/currencies")
 	public List<String> getAllCurrencies() {
 
 		return CurrenciesList.LIST_OF_CURRENCIES;
 	}
 
+	/**
+	 * Fetches latest currency rates form https://openexchangerates.org/api/
+	 * api's and store it in database.
+	 */
 	@GetMapping("currency/latest-currency-rates")
 	@Cacheable("latest-currency-rates")
 	public List<Currency> getLatestCurrencyRates() {
 
 		List<Currency> currencyList = currencyService.getLatestRates();
-
-		currencyList.forEach(cur -> {
-			System.out.println("CurrencyName-----" + cur.getCurrencyName() + "        Rate----" + cur.getRate());
-		});
 		return currencyList;
 	}
-	
-	
-/**
- * 
- * @param amount
- * @param fromCurrency
- * @param toCurrency
- * @return
- */
+
+	/**
+	 * Convert amount from fromCurrency to toCurrency.
+	 * 
+	 * @param amount
+	 * @param fromCurrency
+	 * @param toCurrency
+	 * @return
+	 */
 	@GetMapping("currency/convert/{amount}/{fromCurrency}/{toCurrency}")
 	public BigDecimal convertCurrency(@PathVariable("amount") String amount,
 			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
 
 		BigDecimal convertedAmount = currencyService.convertCurrency(amount, fromCurrency, toCurrency);
-		
+
 		return convertedAmount;
 	}
 
+	/**
+	 * Provides list of last ten queried conversions.
+	 */
 	@GetMapping("currency/conversion-queries")
 	public List<ConversionQuery> getConversionQueries(Principal principal) {
 
