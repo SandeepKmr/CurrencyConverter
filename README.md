@@ -24,10 +24,12 @@ git clone https://github.com/SandeepKmr/CurrencyConverter.git
 You can run the application from the command line using:
 ```
 cd CurrencyConverter/
+```
 
+```
 mvn spring-boot:run
 ```
-Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources with:
+Or you can build a single executable WAR file that contains all the necessary dependencies, classes, and resources with:
 ```
 mvn clean package
 ```
