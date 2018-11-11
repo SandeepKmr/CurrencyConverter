@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<!-- background:#343b52 -->
+
 	<div class="login_container">
 
 		<div class="login_wrapper">
