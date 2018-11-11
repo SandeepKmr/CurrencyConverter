@@ -148,7 +148,7 @@
 				<div class="content_wrapper"
 					style="height: 580px; overflow: scroll; padding: 10px 25px 10px 25px;">
 
-					<div id="conversion_queries" style=""></div>
+					<div id="conversion_queries" ></div>
 				</div>
 			</div>
 

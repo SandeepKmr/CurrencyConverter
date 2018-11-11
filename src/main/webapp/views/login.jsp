@@ -52,12 +52,8 @@
 								<span
 									style="text-align: center; position: relative; top: 30px; color: red;">${error_message}</span>
 								<span
-									style="text-align: center; position: relative; top: 30px; color: green;">${success_message}</span>
+									style="text-align: center; position: relative; top: 30px; color: #46b546;">${success_message}</span>
 							</div>
-							<%-- <div class="row success_messages"
-								style="text-align: center; margin-top: 30px; color: #0a980f;">
-								<span>${success_message}</span>
-							</div> --%>
 						</form>
 					</div>
 

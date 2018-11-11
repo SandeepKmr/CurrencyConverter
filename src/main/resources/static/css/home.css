@@ -164,3 +164,16 @@
 	border: 1px solid #e0e0e0;
 	border-bottom: none;
 }
+
+.no_records
+{
+	margin-top: 25vh;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#conversion_queries .no_records
+{
+	text-align :center;
+}

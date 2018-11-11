@@ -181,15 +181,27 @@ function displayCurrentRates(response) {
 function displayLatestQueries(response) {
 	var queryList = JSON.parse(response);
 	var htmlString = "";
-	$.each(queryList, function(key, value) {
-		htmlString += '<div class="history_box"><div class="history_header"><div class="row"><div class="from_currency_box col s4 m5 l4 xl3 valign-wrapper">'
-			+ '<img src="images/currency/' + value.fromCurrency + '.svg"> <span>' + value.fromCurrency + '</span></div><div class="arrow_box col s4 m2 l3 xl2 valign-wrapper"style="height: 30px;">'
-			+ '<i class="fa fa-long-arrow-right"></i></div><div class="to_currency_box col s4 m5 l4 xl3 valign-wrapper"><img src="images/currency/' + value.toCurrency + '.svg">'
-			+ '<span>' + value.toCurrency + '</span></div></div></div><div class="history_body"><div class="history_amount_box">'
-			+ '<span>Amount :</span><span style="margin-left: 10px;">' + value.amount + '</span></div><div class="history_result_box"><span>Result :</span>'
-			+ '<span style="margin-left: 10px;">' + value.convertedResult + '</span></div><div class="right-align history_date_time"><span>' + moment(value.queryDate).format('llll') + '</span></div></div></div>';
+	
+	console.log(response.length);
+	
+	if (queryList.length >0) {
+		$.each(queryList, function(key, value) {
+			htmlString += '<div class="history_box"><div class="history_header"><div class="row"><div class="from_currency_box col s4 m5 l4 xl3 valign-wrapper">'
+				+ '<img src="images/currency/' + value.fromCurrency + '.svg"> <span>' + value.fromCurrency + '</span></div><div class="arrow_box col s4 m2 l3 xl2 valign-wrapper"style="height: 30px;">'
+				+ '<i class="fa fa-long-arrow-right"></i></div><div class="to_currency_box col s4 m5 l4 xl3 valign-wrapper"><img src="images/currency/' + value.toCurrency + '.svg">'
+				+ '<span>' + value.toCurrency + '</span></div></div></div><div class="history_body"><div class="history_amount_box">'
+				+ '<span>Amount :</span><span style="margin-left: 10px;">' + value.amount + '</span></div><div class="history_result_box"><span>Result :</span>'
+				+ '<span style="margin-left: 10px;">' + value.convertedResult + '</span></div><div class="right-align history_date_time"><span>' + moment(value.queryDate).format('llll') + '</span></div></div></div>';
 
-	});
+		});
+	}
+	else
+	{
+		htmlString='<span class="no_records">No records found.</span>';
+	}
+
+	
+	
 	$('#conversion_queries').html(htmlString);
 }
 

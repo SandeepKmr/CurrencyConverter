@@ -45,49 +45,6 @@ div.error {
 	background-color: #343b52;
 }
 
-.btn.disabled, .disabled.btn-large, .disabled.btn-small, .btn-floating.disabled,
-	.btn-large.disabled, .btn-small.disabled, .btn-flat.disabled, .btn:disabled,
-	.btn-large:disabled, .btn-small:disabled, .btn-floating:disabled,
-	.btn-large:disabled, .btn-small:disabled, .btn-flat:disabled, .btn[disabled],
-	.btn-large[disabled], .btn-small[disabled], .btn-floating[disabled],
-	.btn-large[disabled], .btn-small[disabled], .btn-flat[disabled] {
-	background-color: #343b52 !important;
-	color: #9F9F9F !important;
-}
-
-.btn.disabled:hover, .disabled.btn-large:hover, .disabled.btn-small:hover,
-	.btn-floating.disabled:hover, .btn-large.disabled:hover, .btn-small.disabled:hover,
-	.btn-flat.disabled:hover, .btn:disabled:hover, .btn-large:disabled:hover,
-	.btn-small:disabled:hover, .btn-floating:disabled:hover, .btn-large:disabled:hover,
-	.btn-small:disabled:hover, .btn-flat:disabled:hover, .btn[disabled]:hover,
-	.btn-large[disabled]:hover, .btn-small[disabled]:hover, .btn-floating[disabled]:hover,
-	.btn-large[disabled]:hover, .btn-small[disabled]:hover, .btn-flat[disabled]:hover
-	{
-	background-color: #343b52 !important;
-	color: #9F9F9F !important
-}
-
-.
-.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
-	background-color: #343b52
-}
-
-.btn, .btn-large, .btn-small {
-	background-color: #343b52;
-}
-
-.btn:hover, .btn-large:hover, .btn-small:hover {
-	background-color: #343b52
-}
-
-.btn-floating {
-	background-color: #343b52;
-}
-
-.btn-floating:hover {
-	background-color: #343b52
-}
-
 /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
 	display: none;
@@ -116,8 +73,6 @@ input[type="date"] {
 	display: inline-block !important;
 	visibility: visible !important;
 	border-radius: 5px;
-	
-
 }
 
 input[type="date"], focus {
@@ -131,6 +86,31 @@ input[type="date"], focus {
 	color: #343b52;
 }
 
-input.valid-default){
-	background:#2b2b2b;
+.input-field input:focus+label {
+	color: #343b52 !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+	border-bottom: 1px solid #343b52 !important;
+	box-shadow: 0 0px 0 0 #343b52 !important
+}
+
+.btn {
+	background-color: #343b52
+}
+
+.btn:visited {
+	background-color: #343b52
+}
+
+.btn:hover {
+	background-color: #343b52
+}
+
+.btn:active {
+	background-color: #343b52;
+}
+
+.btn:focus {
+	background-color: #343b52;
 }
