@@ -84,6 +84,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 		if (StringUtils.isNotBlank(amount) && StringUtils.isNotBlank(fromCurrency)
 				&& StringUtils.isNotBlank(toCurrency)) {
+			
 			conversionAmount = new BigDecimal(amount);
 			if (conversionAmount.compareTo(BigDecimal.ZERO) > 0) {
 

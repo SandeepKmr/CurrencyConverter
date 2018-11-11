@@ -51,6 +51,7 @@ public class CurrencyController {
 			@PathVariable("fromCurrency") String fromCurrency, @PathVariable("toCurrency") String toCurrency) {
 
 		BigDecimal convertedAmount = currencyService.convertCurrency(amount, fromCurrency, toCurrency);
+		
 		return convertedAmount;
 	}
 

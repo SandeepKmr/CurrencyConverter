@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"href="webjars/materializecss/1.0.0/css/materialize.min.css">
+<link rel="stylesheet"
+	href="webjars/materializecss/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="css/global_style.css">
 <link rel="stylesheet" href="css/register.css">
 <link rel="stylesheet" href="css/login.css">
@@ -16,12 +17,12 @@
 <body>
 
 
-	<div class="login_container">
+	<div class="register_container">
 
-		<div class="login_wrapper">
+		<div class="register_wrapper">
 
 			<span class="login_title">Register</span>
-			<div id="signUp" class="col s12" style="height: 530px;">
+			<div id="signUp" class="col s12" style="height: 560px;">
 
 
 
@@ -29,7 +30,7 @@
 					<div class="col s12">
 						<form:form method="POST" action="/register"
 							modelAttribute="registrationForm" name="register_form">
-							
+
 							<div class="row">
 								<div class="input-field col s12">
 									<form:input id="signup_email" path="emailId" type="email"
@@ -44,7 +45,7 @@
 									<form:input id="signup_pass" path="password" type="password"
 										name="password" />
 									<form:label path="password" for="signup_pass">Password</form:label>
-										<form:errors path="password" cssClass="form_error" />
+									<form:errors path="password" cssClass="form_error" />
 								</div>
 							</div>
 
@@ -57,10 +58,12 @@
 								</div>
 							</div>
 							<div class="row">
+								<form:label for="signup_dob" path="dateOfBirth"
+									style="position: relative;left: 10px;top: 10px;font-size: 15px;">Date Of Birth</form:label>
 								<div class="input-field col s12">
-									<form:input id="signup_dob" path="dateOfBirth" type="text"
-										class="datepicker" name="dateOfBirth" />
-									<form:label for="signup_dob" path="dateOfBirth">Date Of Birth</form:label>
+									<form:input id="signup_dob" path="dateOfBirth" type="date"
+										class="browser-default" name="dateOfBirth" style="width:100%;height:42px;color: #545454;" />
+
 									<form:errors path="dateOfBirth" cssClass="form_error" />
 								</div>
 
@@ -73,9 +76,9 @@
 										style="width: 100%; margin-top: 20px;">SignUp</button>
 								</div>
 							</div>
-							
-							<div class="reg_error" >${registration_status}</div>
-							
+
+							<div class="reg_error">${registration_status}</div>
+
 
 						</form:form>
 
@@ -98,7 +101,8 @@
 
 
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 </body>

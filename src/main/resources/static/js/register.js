@@ -3,6 +3,17 @@ $(document).ready(function() {
 	validateRegisterForm();
 
 });
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
 function validateRegisterForm() {
 		
 	var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,20}$/
@@ -14,9 +25,12 @@ function validateRegisterForm() {
 
 	$.validator.addMethod("dateRange",
 		function(value, element) {
-			return Date.parse(value) <= Date.parse('12/31/2000') || value == "";
+		
+			console.log(getAge(value))
+			
+			return getAge(value) >18 || value == "";
 		},
-		"Date of birth should should not be greater than 31-12-2000 .");
+		"Age must be greater than 18 years.");
 
 	$("form[name='register_form']").validate({
 		errorElement : "div",

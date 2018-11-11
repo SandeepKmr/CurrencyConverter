@@ -65,9 +65,13 @@ $(document).ready(function() {
 				url : "/currency/convert/" + amount + "/" + fromCurrency + "/" + toCurrency,
 				dataType : 'json',
 				success : function(data, status, xhr) {
+					console.log("success xhr"+xhr)
 					displayConvertedResult(data);
 				},
 				error : function(xhr, status, error) {
+					console.log("XHR"+xhr);
+					console.log("Status"+status);
+					console.log("error"+error);
 					displayError(xhr);
 
 
@@ -195,5 +199,5 @@ function displayLatestQueries(response) {
 
 function displayError(xhr)
 {
-	Materialize.toast(xhr.responseJSON.error, 4000, '#e57373 red lighten-2')
+	Materialize.toast(xhr.responseJSON.message, 4000, '#e57373 red lighten-2')
 }

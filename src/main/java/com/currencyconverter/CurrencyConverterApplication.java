@@ -37,7 +37,6 @@ public class CurrencyConverterApplication implements CommandLineRunner {
 		BCryptPasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
 		
 		User obj = new User();
-		//obj.setUserName("Sandeep");
 		obj.setEmailId("sandeepkumar@live.in");
 		obj.setPassword(passwordEncoder.encode("Sandeep@123"));
 		obj.setConfirmPassword(passwordEncoder.encode("Sandeep@123"));

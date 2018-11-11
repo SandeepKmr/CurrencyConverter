@@ -25,18 +25,18 @@
 				<!-- <span>C</span> <span>C</span> -->
 				<nav class="col s12 " style="color:white;"> <!-- <div>CC</div>> -->
 				<div class="nav-wrapper">
-					<!-- <span>C</span> <span>C</span> -->
-					<a href="#" class="brand-logo center"
-						style="font-size: 50px; font-weight: 700;">CC</a>
-					<div style="display: inline-block" class="welcome_user_block">
+					<%-- <div style="display: inline-block" class="welcome_user_block center">
 						<span>Welcome </span>
-						
-						<c:set var = "userEmialId" value = "${pageContext.request.userPrincipal.name}" />
-						
-						<c:set var="username"
-							value="${fn:split(userEmailId ,'@')}" />
-						<span>${userEmialId} </span>
-					</div>
+							<span style="position:relative;left:8px;">${pageContext.request.userPrincipal.name}</span>
+					</div> --%>
+					
+					
+					<a href="#" class=" "
+						style="font-size: 42px; font-weight: 600;">CC</a>
+						<%-- <div style="display: inline-block ;margin-left:40%" class="welcome_user_block">
+						<span>Welcome </span>
+							<span style="position:relative;left:8px;">${pageContext.request.userPrincipal.name}</span>
+					</div> --%>
 					<ul id="nav-mobile" class="right ">
 						<li><a href="/logout">Logout</a></li>
 					</ul>

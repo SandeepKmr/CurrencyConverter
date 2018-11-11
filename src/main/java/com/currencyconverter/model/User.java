@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -63,6 +65,7 @@ public class User {
 	private String confirmPassword;
 
 	@NotNull(message = "Date of birth should not be blank")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "date_of_birth")
 	private Date dateOfBirth;
 
