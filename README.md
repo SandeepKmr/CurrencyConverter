@@ -33,7 +33,7 @@ mvn clean package
 
 You can run the JAR file with:
 ```
-java -jar target/*.jar
+java -jar target/*.war
 ```
 It will auto deployed in embeded tomcat provided with Spring Boot at port 8080.
 
