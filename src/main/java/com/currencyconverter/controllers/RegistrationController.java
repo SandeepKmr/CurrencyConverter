@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.currencyconverter.model.Role;
 import com.currencyconverter.model.User;
@@ -42,20 +43,26 @@ public class RegistrationController {
 	}
 
 	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("registrationForm") User user, BindingResult bindingResult,ModelMap modelMap) {
+	public String register(@Valid @ModelAttribute("registrationForm") User user, BindingResult bindingResult,
+			ModelMap modelMap, RedirectAttributes redirectAttributes) {
 
 		if (bindingResult.hasErrors()) {
-			modelMap.put("errorMessage", "Registration failed,please try again.");
 			return "register";
 		} else {
 			Set<Role> role = new HashSet<>();
 			role.add(new Role("ROLE_USER"));
 			user.setRoles(role);
-			User savedUser = userService.saveUser(user);
-			modelMap.put("successMessage", " Registered successfully.");
-			logger.info("User " + savedUser.getEmailId() + " Saved Successfully !!");
-		}
 
+			if (!userService.isUserExists(user.getEmailId())) {
+				User savedUser = userService.saveUser(user);
+				redirectAttributes.addFlashAttribute("registration_message", "Registered successfully !!");
+				logger.info("User " + savedUser.getEmailId() + " Saved successfully !!");
+				return "redirect:/login";
+			} else {
+				modelMap.put("registration_status", "User already exists.");
+			}
+		}
+		logger.info("Registration is unsuccessfull.");
 		return "register";
 
 	}

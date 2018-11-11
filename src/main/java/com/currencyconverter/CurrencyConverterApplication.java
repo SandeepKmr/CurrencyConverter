@@ -39,8 +39,8 @@ public class CurrencyConverterApplication implements CommandLineRunner {
 		User obj = new User();
 		//obj.setUserName("Sandeep");
 		obj.setEmailId("sandeepkumar@live.in");
-		obj.setPassword(passwordEncoder.encode("pass"));
-		obj.setConfirmPassword(passwordEncoder.encode("pass"));
+		obj.setPassword(passwordEncoder.encode("Sandeep@123"));
+		obj.setConfirmPassword(passwordEncoder.encode("Sandeep@123"));
 		obj.setDateOfBirth(new Date("3/3/2018"));
 
 		Role roleObj = new Role();

@@ -12,6 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author sandeepkumar
@@ -40,16 +47,22 @@ public class User {
 	@Column(name = "user_id")
 	private long userId;
 
-
-	@Column(name = "email_id")
+	@NotBlank(message = "Please enter email address")
+	@Email
+	@Column(name = "email_id", unique = true)
 	private String emailId;
 
+	@NotBlank(message = "Please enter valid password")
+	@Size(min = 8,message="Your password must between 8 and 15 characters ")
 	@Column(name = "password")
 	private String password;
 
+	@NotBlank(message = "Confirm password should be same as password")
+	@Size(min = 8,message="Your password must between 8 and 15 characters ")
 	@Column(name = "confirm_password")
 	private String confirmPassword;
 
+	@NotNull(message = "Date of birth should not be blank")
 	@Column(name = "date_of_birth")
 	private Date dateOfBirth;
 
@@ -63,7 +76,6 @@ public class User {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-
 
 	public String getEmailId() {
 		return emailId;
@@ -110,7 +122,5 @@ public class User {
 		return "User [userId=" + userId + ", emailId=" + emailId + ", password=" + password + ", confirmPassword="
 				+ confirmPassword + ", dateOfBirth=" + dateOfBirth + ", roles=" + roles + "]";
 	}
-
-	
 
 }

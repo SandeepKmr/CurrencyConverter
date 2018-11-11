@@ -10,4 +10,5 @@ import com.currencyconverter.model.User;
 public interface UserService {
 
 	public User saveUser(User user);
+	public boolean isUserExists(String emailId);
 }

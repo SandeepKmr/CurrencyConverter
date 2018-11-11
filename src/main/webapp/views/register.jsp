@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"href="webjars/materializecss/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="css/global_style.css">
+<link rel="stylesheet" href="css/register.css">
 <link rel="stylesheet" href="css/login.css">
 <title>Register</title>
 </head>
@@ -28,19 +29,13 @@
 					<div class="col s12">
 						<form:form method="POST" action="/register"
 							modelAttribute="registrationForm" name="register_form">
-							<%-- <div class="row">
-								<div class="input-field col s12">
-									<form:input id="signup_username" path="userName" type="text"
-										name="userName" />
-									<form:label path="userName" for="signup_username">Username </form:label>
-								</div>
-
-							</div> --%>
+							
 							<div class="row">
 								<div class="input-field col s12">
 									<form:input id="signup_email" path="emailId" type="email"
 										name="emailId" />
 									<form:label for="signup_email" path="emailId">Email </form:label>
+									<form:errors path="emailId" cssClass="form_error" />
 								</div>
 
 							</div>
@@ -49,6 +44,7 @@
 									<form:input id="signup_pass" path="password" type="password"
 										name="password" />
 									<form:label path="password" for="signup_pass">Password</form:label>
+										<form:errors path="password" cssClass="form_error" />
 								</div>
 							</div>
 
@@ -57,6 +53,7 @@
 									<form:input id="signup_confirm_pass" path="confirmPassword"
 										type="password" name="confirmPassword" />
 									<form:label for="signup_confirm_pass" path="confirmPassword">Confirm Password</form:label>
+									<form:errors path="confirmPassword" cssClass="form_error" />
 								</div>
 							</div>
 							<div class="row">
@@ -64,6 +61,7 @@
 									<form:input id="signup_dob" path="dateOfBirth" type="text"
 										class="datepicker" name="dateOfBirth" />
 									<form:label for="signup_dob" path="dateOfBirth">Date Of Birth</form:label>
+									<form:errors path="dateOfBirth" cssClass="form_error" />
 								</div>
 
 							</div>
@@ -76,8 +74,8 @@
 								</div>
 							</div>
 							
-							<div class="error" >${errorMessage}</div>
-							<div class="success">${successMessage}</div>
+							<div class="reg_error" >${registration_status}</div>
+							
 
 						</form:form>
 

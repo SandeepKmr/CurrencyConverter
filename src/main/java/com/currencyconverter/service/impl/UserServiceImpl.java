@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.currencyconverter.model.User;
 import com.currencyconverter.repository.UserRepository;
 import com.currencyconverter.service.UserService;
+
 /**
  * 
  * @author sandeepkumar
@@ -31,6 +32,14 @@ public class UserServiceImpl implements UserService {
 		user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
 
 		return userRepository.save(user);
+	}
+
+	@Override
+	public boolean isUserExists(String emailId) {
+		if (userRepository.findByEmailId(emailId) == null) {
+			return false;
+		}
+		return true;
 	}
 
 }

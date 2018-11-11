@@ -18,7 +18,7 @@
 </head>
 <body>
 
-
+<!-- background:#343b52 -->
 	<div class="login_container">
 
 		<div class="login_wrapper">
@@ -28,12 +28,12 @@
 
 			<div class="row">
 
-				<div id="login" class="col s12"
-					style="">
+				<div id="login" class="col s12" style="">
 
 
 					<div class="row">
-						<form action="/login" method="POST" class="col s12" name="login_form">
+						<form action="/login" method="POST" class="col s12"
+							name="login_form">
 							<div class="row">
 								<div class="input-field col s12">
 									<input id="email" type="text" class="validate" name="email">
@@ -43,8 +43,8 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="password" type="password" 
-										name="password"> <label for="password">Password</label>
+									<input id="password" type="password" name="password"> <label
+										for="password">Password</label>
 								</div>
 							</div>
 							<div class="row">
@@ -54,6 +54,17 @@
 										type="submit" id="login_btn" name="submit">LogIn</button>
 								</div>
 							</div>
+
+							<div class="row " style="text-align: center">
+								<span
+									style="text-align: center; position: relative; top: 30px; color: red;">${error_message}</span>
+								<span
+									style="text-align: center; position: relative; top: 30px; color: green;">${success_message}</span>
+							</div>
+							<%-- <div class="row success_messages"
+								style="text-align: center; margin-top: 30px; color: #0a980f;">
+								<span>${success_message}</span>
+							</div> --%>
 						</form>
 					</div>
 
@@ -76,8 +87,9 @@
 
 
 	<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+
 	<!-- <script src="webjars/bootstrap/4.1.3/js/bootstrap.js"></script> -->
 	<script src="webjars/materializecss/1.0.0/js/materialize.min.js"></script>
 	<!-- <script src="webjars/font-awesome/5.3.1/js/fontawesome.min.js"></script> -->
