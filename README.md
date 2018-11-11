@@ -23,6 +23,8 @@ git clone https://github.com/SandeepKmr/CurrencyConverter.git
 
 You can run the application from the command line using:
 ```
+cd CurrencyConverter/
+
 mvn spring-boot:run
 ```
 Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources with:
@@ -35,7 +37,12 @@ You can run the JAR file with:
 ```
 java -jar target/*.war
 ```
-It will auto deployed in embeded tomcat provided with Spring Boot at port 8080.
+It will auto deployed in embedded tomcat provided with Spring Boot at port 8080.
+
+```
+http://localhost:8080/
+
+```
 
 ### Built With
 
