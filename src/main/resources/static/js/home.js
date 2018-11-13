@@ -65,7 +65,7 @@ $(document).ready(function() {
 				url : "/currency/convert/" + amount + "/" + fromCurrency + "/" + toCurrency,
 				dataType : 'json',
 				success : function(data, status, xhr) {
-					displayConvertedResult(data);
+					displayConvertedResult(xhr);
 				},
 				error : function(xhr, status, error) {
 					displayError(xhr);
@@ -159,9 +159,9 @@ function getConversionQueries() {
 
 }
 
-function displayConvertedResult(response) {
+function displayConvertedResult(xhr) {
 	$("#currency_result").removeClass("hide");
-	var htmlString = "<div class='col s12 result_box' ><div >" + response + "</div></div>";
+	var htmlString = "<div class='col s12 result_box' ><div >" + xhr.responseText + "</div></div>";
 	$('#currency_result').html(htmlString);
 	getConversionQueries();
 

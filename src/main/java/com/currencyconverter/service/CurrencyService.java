@@ -20,7 +20,7 @@ public interface CurrencyService {
 
 	public List<Currency> getLatestRates();
 
-	public BigDecimal convertCurrency(String amount, String fromCurrency, String toCurrency);
+	public String convertCurrency(String amount, String fromCurrency, String toCurrency);
 
 	public List<ConversionQuery> getConversionQueries(String emailId);
 

@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author sandeepkumar
@@ -41,10 +43,21 @@ public class ConversionQuery {
 	private String convertedResult;
 
 	@Column(name = "query_date")
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date queryDate;
 
 	public ConversionQuery() {
+	}
+
+	public ConversionQuery(long id, String emailId, String fromCurrency, String toCurrency, String amount,
+			String convertedResult, Date queryDate) {
+		super();
+		Id = id;
+		this.emailId = emailId;
+		this.fromCurrency = fromCurrency;
+		this.toCurrency = toCurrency;
+		this.amount = amount;
+		this.convertedResult = convertedResult;
+		this.queryDate = queryDate;
 	}
 
 	public ConversionQuery(String emailId, String fromCurrency, String toCurrency, String amount,

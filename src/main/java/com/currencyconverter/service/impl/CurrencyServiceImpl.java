@@ -84,7 +84,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 	 * Converting the currency
 	 */
 	@Override
-	public BigDecimal convertCurrency(String amount, String fromCurrency, String toCurrency) {
+	public String convertCurrency(String amount, String fromCurrency, String toCurrency) {
 		BigDecimal conversionAmount = null;
 		List<Currency> currencyList = null;
 
@@ -100,9 +100,9 @@ public class CurrencyServiceImpl implements CurrencyService {
 
 				BigDecimal fromCurrencyValue = currencyRateMap.get(fromCurrency);
 				BigDecimal toCurrencyValue = currencyRateMap.get(toCurrency);
-				conversionAmount = (toCurrencyValue.divide(fromCurrencyValue, 6, RoundingMode.FLOOR))
+				conversionAmount = (toCurrencyValue.divide(fromCurrencyValue, 4, RoundingMode.FLOOR))
 						.multiply(conversionAmount);
-				logger.info("currency converted  successfully.Converted amount " + conversionAmount);
+				logger.info("currency converted  successfully.Converted amount " + conversionAmount.toString());
 
 			} else {
 				
@@ -118,7 +118,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 			logger.error("invalid conversion parameters.");
 			throw new IllegalArgumentException("invalid conversion parameters");
 		}
-		return conversionAmount;
+		return conversionAmount.toString();
 	}
 
 	/**
