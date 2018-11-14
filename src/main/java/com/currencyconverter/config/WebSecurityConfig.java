@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.currencyconverter.service.impl.CustomUserDetailsService;
+import com.currencyconverter.service.impl.CustomUserDetailsServiceTest;
 
 /**
  * Provides spring security configuration.
@@ -23,12 +23,12 @@ import com.currencyconverter.service.impl.CustomUserDetailsService;
  */
 @EnableWebSecurity
 @Configuration
-@ComponentScan(basePackageClasses = CustomUserDetailsService.class)
+@ComponentScan(basePackageClasses = CustomUserDetailsServiceTest.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new CustomUserDetailsService();
+		return new CustomUserDetailsServiceTest();
 	}
 
 	@Override

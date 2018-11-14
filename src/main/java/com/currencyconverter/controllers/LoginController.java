@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class LoginController {
 
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoginControllerTest.class);
 
 	@GetMapping("/login")
 	public String login(@ModelAttribute("registration_message") String message, Model model, String error,

@@ -29,21 +29,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "user")
 public class User {
-
-	public User() {
-
-	}
-
-	public User(User user) {
-
-		this.userId = user.getUserId();
-		this.emailId = user.getEmailId();
-		this.password = user.getPassword();
-		this.confirmPassword = user.getConfirmPassword();
-		this.dateOfBirth = user.getDateOfBirth();
-		this.roles = user.getRoles();
-	}
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
@@ -55,12 +41,12 @@ public class User {
 	private String emailId;
 
 	@NotBlank(message = "Please enter valid password")
-	@Size(min = 8,message="Your password must between 8 and 15 characters ")
+	@Size(min = 8, message = "Your password must between 8 and 15 characters ")
 	@Column(name = "password")
 	private String password;
 
 	@NotBlank(message = "Confirm password should be same as password")
-	@Size(min = 8,message="Your password must between 8 and 15 characters ")
+	@Size(min = 8, message = "Your password must between 8 and 15 characters ")
 	@Column(name = "confirm_password")
 	private String confirmPassword;
 

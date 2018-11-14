@@ -28,6 +28,12 @@ public class Role {
 
 	}
 
+	public Role(int roleId, String roleName) {
+		super();
+		this.roleId = roleId;
+		this.roleName = roleName;
+	}
+
 	public Role(String role) {
 		this.roleName = role;
 	}

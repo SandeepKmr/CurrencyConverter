@@ -1,6 +1,5 @@
 package com.currencyconverter.controllers;
 
-import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
 
