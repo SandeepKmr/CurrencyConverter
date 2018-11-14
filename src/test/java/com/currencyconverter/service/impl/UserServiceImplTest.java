@@ -19,11 +19,6 @@ import com.currencyconverter.model.Role;
 import com.currencyconverter.model.User;
 import com.currencyconverter.repository.UserRepository;
 
-/**
- * 
- * @author sandeepkumar
- *
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceImplTest {

@@ -1,7 +1,6 @@
 package com.currencyconverter.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,7 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.currencyconverter.service.impl.CustomUserDetailsServiceTest;
+import com.currencyconverter.service.impl.CustomUserDetailsService;
+
 
 /**
  * Provides spring security configuration.
@@ -23,12 +23,11 @@ import com.currencyconverter.service.impl.CustomUserDetailsServiceTest;
  */
 @EnableWebSecurity
 @Configuration
-@ComponentScan(basePackageClasses = CustomUserDetailsServiceTest.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new CustomUserDetailsServiceTest();
+		return new CustomUserDetailsService();
 	}
 
 	@Override
