@@ -3,6 +3,11 @@ package com.currencyconverter.utility;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+/**
+ * @author sandeepkumar
+ *
+ */
 public class Mapping {
 
 	public static String mapToJsonString(Object object) throws JsonProcessingException {

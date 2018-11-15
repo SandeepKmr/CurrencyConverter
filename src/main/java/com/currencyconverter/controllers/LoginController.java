@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.currencyconverter.service.UserService;
 
 /**
- * 
+ *
  * @author sandeepkumar
  *
  */
@@ -26,10 +26,10 @@ import com.currencyconverter.service.UserService;
 @Controller
 public class LoginController {
 
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-	@GetMapping("/login")
+	@GetMapping({"/login","/testlogin"})
 	public String login(@ModelAttribute("registration_message") String message, Model model, String error,
 			String logout) {
 		if (error != null) {

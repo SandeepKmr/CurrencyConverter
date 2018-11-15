@@ -1,16 +1,9 @@
 package com.currencyconverter.service.impl;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
+import com.currencyconverter.model.ConversionQuery;
+import com.currencyconverter.model.Currency;
+import com.currencyconverter.repository.ConversionQueryRepository;
+import com.currencyconverter.repository.CurrencyRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +15,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.currencyconverter.model.ConversionQuery;
-import com.currencyconverter.model.Currency;
-import com.currencyconverter.repository.ConversionQueryRepository;
-import com.currencyconverter.repository.CurrencyRepository;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+
+/**
+ * @author sandeepkumar
+ *
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

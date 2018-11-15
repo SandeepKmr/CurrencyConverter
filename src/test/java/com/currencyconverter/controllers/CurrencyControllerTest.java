@@ -1,19 +1,14 @@
 package com.currencyconverter.controllers;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.currencyconverter.model.ConversionQuery;
+import com.currencyconverter.model.Currency;
+import com.currencyconverter.service.CurrencyService;
+import com.currencyconverter.utility.Mapping;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -23,10 +18,18 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.currencyconverter.model.ConversionQuery;
-import com.currencyconverter.model.Currency;
-import com.currencyconverter.service.CurrencyService;
-import com.currencyconverter.utility.Mapping;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+/**
+ * @author sandeepkumar
+ *
+ */
 
 @WebMvcTest(value = CurrencyController.class)
 @RunWith(SpringRunner.class)
