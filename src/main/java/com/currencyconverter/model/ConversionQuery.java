@@ -60,6 +60,18 @@ public class ConversionQuery {
 		this.queryDate = queryDate;
 	}
 
+	public ConversionQuery(long id, String emailId, String fromCurrency, String toCurrency, String amount,
+			String convertedResult) {
+		super();
+		Id = id;
+		this.emailId = emailId;
+		this.fromCurrency = fromCurrency;
+		this.toCurrency = toCurrency;
+		this.amount = amount;
+		this.convertedResult = convertedResult;
+		
+	}
+	
 	public ConversionQuery(String emailId, String fromCurrency, String toCurrency, String amount,
 			String convertedResult, Date queryDate) {
 		super();

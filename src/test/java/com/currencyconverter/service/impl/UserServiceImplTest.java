@@ -27,70 +27,70 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class UserServiceImplTest {
 
-    @MockBean
-    private UserRepository userRepository;
+	@MockBean
+	private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-    @Test
-    public void testSaveUser() {
+	@Test
+	public void testSaveUser() {
 
-        Role role1 = new Role(10, "ROLE_ADMIN");
-        Role role2 = new Role(10, "ROLE_USER");
-        Set<Role> roleList = new HashSet<Role>();
-        roleList.add(role1);
-        roleList.add(role2);
+		Role role1 = new Role(10, "ROLE_ADMIN");
+		Role role2 = new Role(10, "ROLE_USER");
+		Set<Role> roleList = new HashSet<Role>();
+		roleList.add(role1);
+		roleList.add(role2);
 
-        User user1 = new User();
-        user1.setUserId(100);
-        user1.setEmailId("user1@gmail.com");
-        user1.setPassword("password");
-        user1.setConfirmPassword("password");
-        user1.setDateOfBirth(new Date());
-        user1.setRoles(roleList);
+		User user1 = new User();
+		user1.setUserId(100);
+		user1.setEmailId("user1@gmail.com");
+		user1.setPassword("password");
+		user1.setConfirmPassword("password");
+		user1.setDateOfBirth(new Date());
+		user1.setRoles(roleList);
 
-        user1.setPassword(passwordEncoder.encode(user1.getPassword()));
-        user1.setConfirmPassword(passwordEncoder.encode(user1.getConfirmPassword()));
+		user1.setPassword(passwordEncoder.encode(user1.getPassword()));
+		user1.setConfirmPassword(passwordEncoder.encode(user1.getConfirmPassword()));
 
-        Mockito.when(userRepository.save(user1)).thenReturn(user1);
-        assertThat(userRepository.save(user1)).isEqualTo(user1);
+		Mockito.when(userRepository.save(user1)).thenReturn(user1);
+		assertThat(userRepository.save(user1)).isEqualTo(user1);
 
-    }
+	}
 
-    @Test
-    public void testIsUserExists_UserExist() {
+	@Test
+	public void testIsUserExists_UserExist() {
 
-        Role role1 = new Role(20, "ROLE_ADMIN");
-        Role role2 = new Role(20, "ROLE_USER");
-        Set<Role> roleList = new HashSet<Role>();
-        roleList.add(role1);
-        roleList.add(role2);
+		Role role1 = new Role(20, "ROLE_ADMIN");
+		Role role2 = new Role(20, "ROLE_USER");
+		Set<Role> roleList = new HashSet<Role>();
+		roleList.add(role1);
+		roleList.add(role2);
 
-        User user1 = new User();
-        user1.setUserId(30);
-        user1.setEmailId("user1@gmail.com");
-        user1.setPassword("password");
-        user1.setConfirmPassword("password");
-        user1.setDateOfBirth(new Date());
-        user1.setRoles(roleList);
+		User user1 = new User();
+		user1.setUserId(30);
+		user1.setEmailId("user1@gmail.com");
+		user1.setPassword("password");
+		user1.setConfirmPassword("password");
+		user1.setDateOfBirth(new Date());
+		user1.setRoles(roleList);
 
-        Mockito.when(userRepository.findByEmailId(Mockito.anyString())).thenReturn(user1);
-        if (userRepository.findByEmailId(Mockito.anyString()) == null) {
-            assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(null);
-        }
-        assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(user1);
-    }
+		Mockito.when(userRepository.findByEmailId(Mockito.anyString())).thenReturn(user1);
+		if (userRepository.findByEmailId(Mockito.anyString()) == null) {
+			assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(null);
+		}
+		assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(user1);
+	}
 
-    @Test
-    public void testIsUserExists_UserNotExist() {
+	@Test
+	public void testIsUserExists_UserNotExist() {
 
-        User user1 = null;
+		User user1 = null;
 
-        Mockito.when(userRepository.findByEmailId(Mockito.anyString())).thenReturn(user1);
-        if (userRepository.findByEmailId(Mockito.anyString()) == null) {
-            assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(null);
-        }
-        assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(user1);
-    }
+		Mockito.when(userRepository.findByEmailId(Mockito.anyString())).thenReturn(user1);
+		if (userRepository.findByEmailId(Mockito.anyString()) == null) {
+			assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(null);
+		}
+		assertThat(userRepository.findByEmailId(Mockito.anyString())).isEqualTo(user1);
+	}
 }

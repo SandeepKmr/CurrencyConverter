@@ -1,9 +1,12 @@
 package com.currencyconverter.controllers;
 
-import com.currencyconverter.model.ConversionQuery;
-import com.currencyconverter.model.Currency;
-import com.currencyconverter.service.CurrencyService;
-import com.currencyconverter.utility.Mapping;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,13 +21,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
+import com.currencyconverter.model.ConversionQuery;
+import com.currencyconverter.model.Currency;
+import com.currencyconverter.service.CurrencyService;
+import com.currencyconverter.utility.Mapping;
 
 /**
  * @author sandeepkumar
@@ -57,7 +57,7 @@ public class CurrencyControllerTest {
 
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-		String expectedJson = Mapping.mapToJsonString(currencyList);
+		String expectedJson = Mapping.mapToString(currencyList);
 		String outputInJson = result.getResponse().getContentAsString();
 		assertThat(outputInJson).isEqualTo(expectedJson);
 	}
@@ -86,12 +86,8 @@ public class CurrencyControllerTest {
 
 		String URI = "/currency/conversion-queries";
 
-		Date cureentDateTime = new Date();
-		// Timestamp cureentDateTime = new Timestamp(cureentDateTime);
-		ConversionQuery conversionQuery1 = new ConversionQuery(1, "user1@gmail.com", "INR", "EUR", "10", "0.1220",
-				cureentDateTime);
-		ConversionQuery conversionQuery2 = new ConversionQuery(2, "user2@gmail.com", "INR", "CAD", "10", "0.1820",
-				cureentDateTime);
+		ConversionQuery conversionQuery1 = new ConversionQuery(1, "user1@gmail.com", "INR", "EUR", "10", "0.1220");
+		ConversionQuery conversionQuery2 = new ConversionQuery(2, "user2@gmail.com", "INR", "CAD", "10", "0.1820");
 		List<ConversionQuery> coversionQueryList = new ArrayList<>();
 		coversionQueryList.add(conversionQuery1);
 		coversionQueryList.add(conversionQuery2);
@@ -101,11 +97,9 @@ public class CurrencyControllerTest {
 
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-		String expectedJson = Mapping.mapToJsonString(coversionQueryList);
-		System.out.println("Expected -" + expectedJson);
+		String expectedJson = Mapping.mapToString(coversionQueryList);
 		String outputInJson = result.getResponse().getContentAsString();
-		System.out.println("outputJson -" + outputInJson);
-		//assertThat(outputInJson).isEqualTo(expectedJson);
+		assertThat(outputInJson).isEqualTo(expectedJson);
 
 	}
 
